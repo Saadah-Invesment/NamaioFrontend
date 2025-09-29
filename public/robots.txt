@@ -1,0 +1,27 @@
+# robots.txt for https://tezcai.com
+User-agent: *
+Allow: /
+
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /admin/
+
+Disallow: /dashboard/
+Disallow: /admin/
+Disallow: /user/
+Disallow: /affiliate/
+Disallow: /cgi-bin/
+Disallow: /checkout/
+Disallow: /cart/
+
+Disallow: /*?utm_
+Disallow: /*?ref=
+
+Disallow: /staging/
+Disallow: /test/
+Disallow: /dev/
+
+Disallow: /api/
+
+Sitemap: https://tezcai.com/sitemap.xml
+# Sitemap: https://tezcai.com/blog-sitemap.xml

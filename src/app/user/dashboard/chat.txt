@@ -1,0 +1,258 @@
+'use client'
+import React, { useMemo, useCallback } from "react";
+import {
+  Chart as ChartJS,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  TimeScale,
+  ChartOptions,
+} from "chart.js";
+import zoomPlugin from "chartjs-plugin-zoom";
+import { Line } from "react-chartjs-2";
+import "chartjs-adapter-date-fns";
+
+ChartJS.register(
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend,
+  TimeScale,
+  zoomPlugin
+);
+
+interface Trade {
+  dry_run: boolean;
+  created_at: string;
+  closed_at?: string;
+  net_pnl_pct: number;
+}
+
+interface ChartTrade {
+  dry_run: boolean;
+  created_at: Date;
+  closed_at?: Date;
+  net_pnl_pct: number;
+}
+
+interface TradingChartProps {
+  filteredData: Trade[] | null;
+  testmode: boolean;
+}
+
+const COLORS = {
+  profit: "#0ecb81",
+  loss: "#f6465d",
+  profitAlpha: "rgba(14, 203, 129, 0.1)",
+  lossAlpha: "rgba(246, 70, 93, 0.1)",
+  grid: "rgba(107, 114, 128, 0.2)",
+  text: "#6b7280",
+  white: "#ffffff",
+  tooltip: "#1a1a2e",
+  border: "#333",
+} as const;
+
+const CHART_CONFIG = {
+  tension: 0.1,
+  borderWidth: 2,
+  pointBorderWidth: 2,
+  maxTicksLimit: 12,
+  fontSize: 10,
+} as const;
+
+const TradingChart: React.FC<TradingChartProps> = ({ filteredData, testmode }) => {
+  // --- parse ISO dates safely ---
+  const parseTradeDate = useCallback((dateString?: string): Date | null => {
+    if (!dateString) return null;
+    const isoString = dateString.split(".")[0];
+    const date = new Date(isoString);
+    return isNaN(date.getTime()) ? null : date;
+  }, []);
+
+  // --- preprocess trades ---
+  const chartData = useMemo(() => {
+    if (!filteredData?.length) return null;
+
+    const processedTrades = filteredData
+      .filter((trade) => (testmode ? trade.dry_run : !trade.dry_run))
+      .map((trade): ChartTrade | null => {
+        const created = parseTradeDate(trade.created_at);
+        const closed = parseTradeDate(trade.closed_at);
+        if (!created) return null;
+        return { ...trade, created_at: created, closed_at: closed ?? created };
+      })
+      .filter((trade): trade is ChartTrade => trade !== null);
+
+    if (!processedTrades.length) return null;
+
+    processedTrades.sort((a, b) => a.created_at.getTime() - b.created_at.getTime());
+
+    // --- expand into points, deduplicate if created_at === closed_at ---
+    const points: { x: number; y: number }[] = [];
+    processedTrades.forEach((trade) => {
+      const start = { x: trade.created_at.getTime(), y: trade.net_pnl_pct };
+      const end = { x: trade.closed_at?.getTime() ?? trade.created_at.getTime(), y: trade.net_pnl_pct };
+      points.push(start);
+      if (start.x !== end.x) points.push(end); // avoid duplicate horizontal points
+    });
+
+    return points;
+  }, [filteredData, testmode, parseTradeDate]);
+
+  // --- today's range ---
+  const dateRange = useMemo(() => {
+    const today = new Date();
+    return {
+      start: new Date(today.getFullYear(), today.getMonth(), today.getDate(), 0, 0, 0, 0),
+      end: new Date(),
+    };
+  }, []);
+
+  // --- dataset config ---
+  const chartConfig = useMemo(() => {
+    if (!chartData) return null;
+
+    return {
+      datasets: [
+        {
+          label: "Trade PnL",
+          data: chartData,
+          spanGaps: true, // ✅ connect points without gaps
+          segment: {
+            borderColor: (ctx: any) =>
+              ctx.p1.parsed.y >= 0 ? COLORS.profit : COLORS.loss,
+            backgroundColor: (ctx: any) =>
+              ctx.p1.parsed.y >= 0 ? COLORS.profitAlpha : COLORS.lossAlpha,
+          },
+          borderColor: (ctx: any) =>
+            ctx.parsed?.y >= 0 ? COLORS.profit : COLORS.loss,
+          backgroundColor: (ctx: any) => {
+            if (!ctx.chart.chartArea) return;
+            const gradient = ctx.chart.ctx.createLinearGradient(0, 0, 0, 200);
+            const value = ctx.parsed?.y || 0;
+            if (value >= 0) {
+              gradient.addColorStop(0, "rgba(14, 203, 129, 0.2)");
+              gradient.addColorStop(1, "rgba(14, 203, 129, 0)");
+            } else {
+              gradient.addColorStop(0, "rgba(246, 70, 93, 0.2)");
+              gradient.addColorStop(1, "rgba(246, 70, 93, 0)");
+            }
+            return gradient;
+          },
+          tension: CHART_CONFIG.tension,
+          fill: true,
+          pointRadius: 0,
+          pointBackgroundColor: (ctx: any) =>
+            ctx.parsed?.y >= 0 ? COLORS.profit : COLORS.loss,
+          pointBorderColor: COLORS.white,
+          pointBorderWidth: CHART_CONFIG.pointBorderWidth,
+          borderWidth: CHART_CONFIG.borderWidth,
+        },
+      ],
+    };
+  }, [chartData]);
+
+  // --- chart options ---
+  const chartOptions: ChartOptions<"line"> = useMemo(() => ({
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        enabled: true,
+        intersect: false,
+        mode: "index",
+        backgroundColor: COLORS.tooltip,
+        titleColor: COLORS.white,
+        bodyColor: COLORS.white,
+        borderColor: COLORS.border,
+        borderWidth: 1,
+        callbacks: {
+          title: (items) => {
+            const timestamp = items[0].parsed.x;
+            if (!timestamp) return "";
+            return new Date(timestamp).toLocaleString("en-US", {
+              day: "2-digit",
+              month: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+            });
+          },
+          label: (ctx) => {
+            const value = ctx.parsed.y;
+            const indicator = value >= 0 ? "🟢" : "🔴";
+            return `${indicator} PnL: ${value.toFixed(2)}%`;
+          },
+        },
+      },
+      zoom: {
+        zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: "x" },
+        pan: { enabled: true, mode: "x" },
+      },
+    },
+    scales: {
+      x: {
+        type: "time",
+        time: {
+          unit: "hour" as const,
+          tooltipFormat: "MM/dd hh:mm a", displayFormats: { minute: "hh:mm a", hour: "hh:mm a" },
+        },
+        grid: { display: false, color: COLORS.grid },
+        ticks: {
+          color: COLORS.text,
+          font: { size: CHART_CONFIG.fontSize },
+          autoSkip: false,
+          maxTicksLimit: CHART_CONFIG.maxTicksLimit,
+          callback: function (value) {
+            const date = new Date(value as number);
+            return date.toLocaleTimeString("en-US", {
+              day: "2-digit",
+              hour: "2-digit",
+              minute: "2-digit",
+              hour12: true,
+            });
+          },
+        },
+        min: dateRange.start.getTime(),
+        max: dateRange.end.getTime(),
+      },
+      y: {
+        display: true,
+        grid: { display: true, color: COLORS.grid },
+        ticks: {
+          color: COLORS.text,
+          font: { size: CHART_CONFIG.fontSize },
+          callback: (value) => `${value}%`,
+        },
+        afterDataLimits: (scale) => {
+          scale.max = Math.max(scale.max, 0.1);
+          scale.min = Math.min(scale.min, -0.1);
+        },
+      },
+    },
+    interaction: { intersect: false, mode: "index" },
+  }), [dateRange]);
+
+  // --- no data fallback ---
+  if (!chartConfig || !chartData?.length) {
+    return (
+      <div className="h-[60vh] w-full bg-gray-900/50 p-4 rounded-lg border border-gray-700/50 flex items-center justify-center">
+        <p className="text-gray-400">No trades available</p>
+      </div>
+    );
+  }
+
+  return (
+    <div className="h-[60vh] w-full bg-gray-900/50 p-4 rounded-lg border border-gray-700/50">
+      <Line data={chartConfig} options={chartOptions} />
+    </div>
+  );
+};
+
+export default React.memo(TradingChart);

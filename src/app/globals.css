@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #111827;
+  --foreground: #ffffff;
+  --primary: #60A5FA;
+  --secondary: #7efefd;
+  --pyellow: #F8D465;
+  --brown: #DABB94;
+  --lightgrey: #E5E6E1;
+  --success: #10B981;
+  --error: #EF4444;
+  --primary-accent: #14B8A6;
+  --foreground-accent: #F3F3F5;
+  --hero-background: #212121;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+html {
+  @apply scroll-smooth;
+}
+
+body {
+  @apply text-lg;
+
+  color: var(--foreground);
+  background: var(--background);
+  font-family: "Source Sans 3", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+
+@layer utilities {
+  .bg-primary-gradient {
+    background-image: linear-gradient(to right, var(--primary), var(--secondary), var(--success));
+    transition: background-image 0.3s ease-in-out;
+  }
+
+  .hover\:bg-primary-gradient-reverse:hover {
+    background-image: linear-gradient(to right, var(--success), var(--secondary), var(--primary));
+  }
+}
+
+
+
+
+.manrope {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+#logos svg {
+  @apply w-fit h-10 sm:h-12;
+}
+
+.benefit-section:last-of-type>div {
+  @apply mb-10;
+}
+
+
+/* globals.css */
+
+/* Hide Google Translate banner and branding */
+
+/* .goog-te-banner-frame.skiptranslate,
+.goog-te-gadget,
+.goog-te-gadget-simple,
+.goog-te-balloon-frame,
+.goog-te-spinner-pos,
+.goog-logo-link,
+.goog-te-combo {
+  display: none !important;
+} */

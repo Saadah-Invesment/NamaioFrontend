@@ -1,0 +1,726 @@
+"use client"
+import Link from "next/link";
+import { FaCheck, FaStar, FaArrowRight, FaChartLine, FaQuestionCircle, FaBolt, FaAward, FaCreditCard, FaSpinner } from 'react-icons/fa';
+import { motion, AnimatePresence } from "framer-motion";
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { BiCheck, BiCheckCircle, BiHelpCircle } from "react-icons/bi";
+import { TbLoader2 } from "react-icons/tb";
+import { FiZap } from "react-icons/fi";
+import { SiTarget } from "react-icons/si";
+import axios from "axios";
+import { cancelPlan, updatefreeplan, updatePlanapi } from "@/api/profile";
+import toast from "react-hot-toast";
+import { jwtDecode } from "jwt-decode";
+
+interface Plan {
+  id: string;
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  cta: string;
+  popular: boolean;
+  icon: React.ReactNode;
+}
+
+type DecodedToken = {
+  subscription?: string;
+  [key: string]: any;
+  free_trial_used: boolean;
+  free_trial_active: boolean;
+  days_to_expire: number;
+};
+
+// Confirmation Dialog Component
+const ConfirmationDialog = ({
+  isOpen,
+  onClose,
+  onConfirm,
+  title,
+  message,
+  type = "info",
+  loading = false
+}: {
+  isOpen: boolean;
+  onClose: () => void;
+  onConfirm: () => void;
+  title: string;
+  message: string;
+  type?: "info" | "danger" | "warning";
+  loading?: boolean;
+}) => {
+  if (!isOpen) return null;
+
+  const getColors = () => {
+    switch (type) {
+      case "danger":
+        return {
+          button: "bg-red-600 hover:bg-red-700",
+          border: "border-red-500/30",
+          icon: "text-red-400"
+        };
+      case "warning":
+        return {
+          button: "bg-yellow-600 hover:bg-yellow-700",
+          border: "border-yellow-500/30",
+          icon: "text-yellow-400"
+        };
+      default:
+        return {
+          button: "bg-blue-600 hover:bg-blue-700",
+          border: "border-blue-500/30",
+          icon: "text-blue-400"
+        };
+    }
+  };
+
+  const colors = getColors();
+
+  return (
+    <AnimatePresence>
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4"
+        onClick={onClose}
+      >
+        <motion.div
+          initial={{ scale: 0.9, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          exit={{ scale: 0.9, opacity: 0 }}
+          className={`bg-gray-800 rounded-xl border ${colors.border} p-6 max-w-md w-full shadow-xl`}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <FaQuestionCircle className={`text-2xl ${colors.icon}`} />
+            <h3 className="text-xl font-bold text-white">{title}</h3>
+          </div>
+
+          <p className="text-gray-300 mb-6">{message}</p>
+
+          <div className="flex gap-3 justify-end">
+            <button
+              onClick={onClose}
+              disabled={loading}
+              className="px-4 py-2 bg-gray-700 hover:bg-gray-600 text-white rounded-lg transition-colors disabled:opacity-50"
+            >
+              Cancel
+            </button>
+            <button
+              onClick={onConfirm}
+              disabled={loading}
+              className={`px-4 py-2 ${colors.button} text-white rounded-lg transition-colors disabled:opacity-50 flex items-center gap-2`}
+            >
+              {loading ? (
+                <>
+                  <TbLoader2 className="w-4 h-4 animate-spin" />
+                  Processing...
+                </>
+              ) : (
+                "Confirm"
+              )}
+            </button>
+          </div>
+        </motion.div>
+      </motion.div>
+    </AnimatePresence>
+  );
+};
+
+export default function Pricing() {
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState<string | null>(null);
+  const [currentPlan, setCurrentPlan] = useState<string | null>(null);
+  const [isfreeused, setIsfreeUsed] = useState(false);
+  const [isfreeactive, setIsfreeactive] = useState(false);
+  const [planexpired, setPlanExpired] = useState(false)
+  const [daytoexpire, setDaytoexpire] = useState(0)
+  const [pageLoading, setPageLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  // Confirmation dialog states
+  const [confirmDialog, setConfirmDialog] = useState({
+    isOpen: false,
+    type: "info" as "info" | "danger" | "warning",
+    title: "",
+    message: "",
+    action: null as (() => void) | null,
+    loading: false
+  });
+
+  const plans: Plan[] = [
+    {
+      id: "signal",
+      name: "Signals",
+      price: "$9.99",
+      description: "For traders who prefer manual control, but want Tezcai's smart precision.",
+      features: [
+        "Smart Filtered Trade Signals",
+        "Momentum Identification",
+        "Trend Confirmation",
+        "Volume Analysis",
+        "Clear Entry & Exit Points",
+        "Easy Delivery — Signals sent instantly to your dashboard, email, or Telegram (your choice)"
+      ],
+      cta: "Get Started",
+      popular: false,
+      icon: <FiZap className="text-blue-400" />
+    },
+    // {
+    //   id: "starter",
+    //   name: "Starter",
+    //   price: "$19.99",
+    //   description: "Best for hands-off auto trading — start small, test results, and scale later.",
+    //   features: [
+    //     "Everything in Signals plus:",
+    //     "Smart bot executes trades automatically on your exchange wallet",
+    //     "Two trades executed daily, selects only high probability setups",
+    //     "Live performance dashboard (PnL, win rate, trade log)"
+    //   ],
+    //   cta: "Get Started",
+    //   popular: false,
+    //   icon: <FiZap className="text-blue-400" />
+    // },
+    {
+      id: "pro",
+      name: "Pro",
+      price: "$29.99",
+      description: "Best for users who want more trade and more results",
+      features: [
+        "Everything in Signal plus:",
+        "Unlimited High-Probability Trades",
+        "Priority Support (<4 Hour Response)",
+        "Live Chat Support",
+        "Weekly Pro Insights Report",
+      ],
+      cta: "Get Started",
+      popular: true,
+      icon: <SiTarget className="text-yellow-400" />
+    },
+    {
+      id: "enterprise",
+      name: "Enterprise",
+      price: "Custom",
+      description: "For funds, prop firms & high-net-worth investors",
+      features: [
+        "White label bot",
+        "Dedicated account manager",
+        "Custom smart strategies",
+        "Bulk onboarding",
+        "API/webhook integration",
+        "Priority execution",
+        "Custom KPIs reporting",
+        "Optional third-party security audits",
+        "On-site/virtual training",
+      ],
+      cta: "Request Demo",
+      popular: false,
+      icon: <FaAward className="text-purple-400" />
+    }
+  ];
+
+  // Initialize user data
+  useEffect(() => {
+    const initializeUserData = async () => {
+      try {
+        setPageLoading(true);
+        setError(null);
+
+        const savedToken = localStorage.getItem("tezcai_token");
+
+        if (savedToken) {
+          const decoded: DecodedToken = jwtDecode(savedToken);
+          console.log("decode", decoded);
+          setPlanExpired(decoded.days_to_expire <= 2)
+          setDaytoexpire(decoded.days_to_expire);
+          setCurrentPlan(decoded.subscription || null);
+          setIsfreeUsed(decoded.free_trial_used || false);
+          setIsfreeactive(decoded.free_trial_active || false);
+        }
+      } catch (err) {
+        console.error("Error initializing user data:", err);
+        setError("Failed to load user information");
+      } finally {
+        setPageLoading(false);
+      }
+    };
+
+    initializeUserData();
+  }, []);
+
+  const showConfirmDialog = (
+    type: "info" | "danger" | "warning",
+    title: string,
+    message: string,
+    action: () => void
+  ) => {
+    setConfirmDialog({
+      isOpen: true,
+      type,
+      title,
+      message,
+      action,
+      loading: false
+    });
+  };
+
+  const closeConfirmDialog = () => {
+    setConfirmDialog(prev => ({ ...prev, isOpen: false, loading: false }));
+  };
+
+  const executeConfirmedAction = async () => {
+    if (!confirmDialog.action) return;
+
+    setConfirmDialog(prev => ({ ...prev, loading: true }));
+
+    try {
+      await confirmDialog.action();
+      closeConfirmDialog();
+    } catch (error) {
+      console.error("Error executing confirmed action:", error);
+      closeConfirmDialog();
+    }
+  };
+
+  const handlePlanSelection = async (plan: Plan, free: boolean) => {
+    if (plan.id === "enterprise") {
+      router.replace("/help-center");
+      return;
+    }
+
+    const planName = plan.name;
+    const actionType = free ? "start free trial" : "subscribe";
+
+    showConfirmDialog(
+      "info",
+      `Confirm ${free ? "Free Trial" : "Subscription"}`,
+      `Are you sure you want to ${actionType} for the ${planName} plan?`,
+      () => processPlanSelection(plan, free)
+    );
+  };
+
+  const processPlanSelection = async (plan: Plan, free: boolean) => {
+    setLoading(true);
+    setSelectedPlan(plan.id);
+    setError(null);
+
+    try {
+      let response;
+
+      if (free) {
+        response = await updatefreeplan(plan.id);
+
+        if (response.status === 200) {
+          toast.success(`Free trial for ${plan.name} activated successfully!`);
+
+          // Redirect based on plan type
+          if (plan.id === "signal") {
+            window.location.href = "/user/signals";
+          } else {
+            window.location.href = "/user/dashboard";
+          }
+        } else {
+          throw new Error('Failed to activate free trial');
+        }
+      } else {
+        response = await updatePlanapi(plan.id);
+
+        if (response.status === 200 && response.data?.checkout_url) {
+          window.location.href = response.data.checkout_url;
+        } else {
+          throw new Error('Invalid payment URL received from server');
+        }
+      }
+    } catch (error) {
+      console.error('Plan selection error:', error);
+
+      let errorMessage = `Failed to ${free ? 'activate free trial' : 'process payment'}. Please try again.`;
+
+      if (axios.isAxiosError(error)) {
+        if (error.response?.data?.detail) {
+          errorMessage = error.response.data.detail;
+        } else if (error.response?.data?.error) {
+          errorMessage = error.response.data.error;
+        } else if (error.response?.data?.message) {
+          errorMessage = error.response.data.message;
+        } else if (error.message) {
+          errorMessage = error.message;
+        }
+      }
+
+      setError(errorMessage);
+      toast.error(errorMessage);
+    } finally {
+      setLoading(false);
+      setSelectedPlan(null);
+    }
+  };
+
+  const handleCancelPlan = (planId: string) => {
+    const planName = plans.find(p => p.id === planId)?.name || 'current plan';
+
+    showConfirmDialog(
+      "danger",
+      "Cancel Subscription",
+      `Are you sure you want to cancel your ${planName} subscription? This action cannot be undone and you will lose access to all premium features.`,
+      () => processCancelPlan(planId)
+    );
+  };
+
+  const processCancelPlan = async (planId: string) => {
+    try {
+      const response = await cancelPlan(planId);
+
+      if (response.status === 200) {
+        toast.success("Plan cancelled successfully. Please log in again.");
+        localStorage.clear();
+        router.replace("/login");
+      } else {
+        throw new Error('Failed to cancel plan');
+      }
+    } catch (error) {
+      console.error("Error cancelling plan:", error);
+
+      let errorMessage = "Failed to cancel plan. Please try again.";
+
+      if (axios.isAxiosError(error)) {
+        if (error.response?.data?.detail) {
+          errorMessage = error.response.data.detail;
+        } else if (error.response?.data?.error) {
+          errorMessage = error.response.data.error;
+        } else if (error.response?.data?.message) {
+          errorMessage = error.response.data.message;
+        }
+      }
+
+      setError(errorMessage);
+      toast.error(errorMessage);
+    }
+  };
+
+  // Show page loading spinner
+  if (pageLoading) {
+    return (
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto flex items-center justify-center">
+          <div className="flex flex-col items-center gap-4">
+            <TbLoader2 className="w-8 h-8 animate-spin text-cyan-500" />
+            <p className="text-gray-400">Loading pricing information...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  return (
+    <>
+      <section id="pricing" className="py-10 px-4 sm:px-6 lg:px-8 bg-gray-900 text-white">
+        <div className="max-w-7xl mx-auto">
+          {/* Error Display */}
+          {error && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="mb-6 bg-red-900/50 border border-red-500/50 rounded-lg p-4 flex items-center gap-3"
+            >
+              <FaQuestionCircle className="text-red-400 flex-shrink-0" />
+              <p className="text-red-200">{error}</p>
+              <button
+                onClick={() => setError(null)}
+                className="ml-auto text-red-400 hover:text-red-300"
+              >
+                ×
+              </button>
+            </motion.div>
+          )}
+
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="text-center mb-5"
+          >
+            <h2 className="text-2xl md:text-4xl font-bold mb-4">
+              Simple Subscription + Performance Based Profit Share
+            </h2>
+            <p className="text-lg text-gray-300 max-w-3xl mx-auto mb-8">
+              We keep the monthly fee low because our incentives align with yours: we earn when you earn.
+              Profit share 15% of net profits generated by Tezcai.(Affiliate commissions are paid from this 15%.)
+            </p>
+          </motion.div>
+
+          {/* Pricing Cards */}
+          <div className="grid md:grid-cols-3 gap-6">
+            {plans.map((plan, index) => {
+              const isSelected = selectedPlan === plan.id;
+              const isCurrentPlan = currentPlan === plan.id;
+              const isProcessing = loading && isSelected;
+
+              return (
+                <motion.div
+                  key={plan.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className={`relative flex flex-col h-full border rounded-xl overflow-hidden transition-all hover:shadow-lg ${plan.popular || isCurrentPlan
+                    ? 'border-cyan-500/50 bg-gradient-to-b from-gray-800 to-gray-900 shadow-cyan-500/10 ring-2 ring-cyan-500/20'
+                    : 'border-gray-700 hover:border-blue-500 bg-gray-800/50'
+                    }`}
+                >
+                  {/* Popular/Current Badge */}
+                  {(plan.popular || isCurrentPlan) && (
+                    <div className="absolute top-0 right-0 bg-cyan-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">
+                      {isCurrentPlan ? 'Current' : 'MOST POPULAR'}
+                    </div>
+                  )}
+
+                  <div className="p-8 flex-grow">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="text-2xl">{plan.icon}</div>
+                      <h3 className="text-2xl font-bold">{plan.name}</h3>
+                    </div>
+
+                    <p className="text-gray-400 mb-6">{plan.description}</p>
+
+                    <div className="mb-8">
+                      <div className="text-4xl font-bold mb-1">
+                        {plan.price}
+                        {plan.price !== "Custom" && (
+                          <span className="text-lg text-gray-400 ml-1">/month</span>
+                        )}
+                      </div>
+                      {plan.id === "starter" && (
+                        <p className="text-sm text-blue-400">Low risk entry point</p>
+                      )}
+                    </div>
+
+                    <ul className="space-y-3 mb-8">
+                      {plan.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start">
+                          <BiCheck className="w-5 h-5 text-green-400 mr-2 mt-0.5 flex-shrink-0" />
+                          <span className={feature.includes("plus:") ? "text-gray-400 font-medium" : "text-gray-300"}>
+                            {feature}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div className="px-8 pb-8 pt-0">
+                    {/* Free Trial Active Badge */}
+                    {isCurrentPlan && isfreeactive && (
+                      <div className="mb-4 flex justify-center">
+                        <p className="text-green-400 font-semibold bg-green-900/30 px-3 py-1 rounded-lg">
+                          Free Trial Active
+                        </p>
+                      </div>
+                    )}
+
+                    {/* Main Action Button */}
+                    {/* {!isCurrentPlan ? (
+                      <button
+                        onClick={() => handlePlanSelection(plan, false)}
+                        disabled={loading || (!isCurrentPlan && !isfreeactive && plan.id === "enterprise")}
+                        className={`w-full py-3 px-6 rounded-lg font-medium flex items-center justify-center gap-2 transition-all disabled:opacity-50 disabled:cursor-not-allowed ${plan.popular
+                          ? "bg-gradient-to-r from-cyan-500 to-blue-600 hover:shadow-cyan-500/20 hover:scale-105"
+                          : "bg-blue-600 hover:bg-blue-700 hover:scale-105"
+                          }`}
+                      >
+                        {isProcessing ? (
+                          <>
+                            <TbLoader2 className="w-4 h-4 animate-spin" />
+                            Processing...
+                          </>
+                        ) : (
+                          <>
+                            {plan.id === "enterprise" ? (
+                              <BiHelpCircle className="w-4 h-4" />
+                            ) : (
+                              <FaCreditCard className="w-4 h-4" />
+                            )}
+                            {plan.cta}
+                            <FaArrowRight className="w-4 h-4" />
+                          </>
+                        )}
+                      </button>
+                    ) : (
+                      <div className="flex justify-center">
+                        {isfreeactive ? (
+                          // Show Update Plan button if on free trial
+                          <button
+                            type="button"
+                            onClick={() => handlePlanSelection(plan, false)}
+                            disabled={loading}
+                            className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:shadow-cyan-500/20 text-white font-medium py-3 px-6 rounded-lg transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                          >
+                            {isProcessing ? (
+                              <>
+                                <TbLoader2 className="w-4 h-4 animate-spin" />
+                                Processing...
+                              </>
+                            ) : (
+                              <>
+                                <FaCreditCard className="w-4 h-4" />
+                                Update to Paid
+                                <FaArrowRight className="w-4 h-4" />
+                              </>
+                            )}
+                          </button>
+                        ) : (
+                          // Show Cancel Plan button if on paid subscription
+                          <div>
+                            {planexpired ? <button
+                              type="button"
+                              onClick={() => handlePlanSelection(plan, false)}
+                              disabled={loading}
+                              className="bg-gradient-to-r from-cyan-500 to-blue-600 hover:shadow-cyan-500/20 text-white font-medium py-3 px-6 rounded-lg transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                            >
+                              {isProcessing ? (
+                                <>
+                                  <TbLoader2 className="w-4 h-4 animate-spin" />
+                                  Processing...
+                                </>
+                              ) : (
+                                <>
+                                  <FaCreditCard className="w-4 h-4" />
+                                  Update ({daytoexpire}) day to expire
+                                  <FaArrowRight className="w-4 h-4" />
+                                </>
+                              )}
+                            </button> : <button
+                              type="button"
+                              onClick={() => handleCancelPlan(currentPlan)}
+                              disabled={loading}
+                              className="bg-gray-500 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                            >
+                              {loading && selectedPlan === "cancel" ? (
+                                <>
+                                  <TbLoader2 className="w-4 h-4 animate-spin" />
+                                  Canceling...
+                                </>
+                              ) : (
+                                "Cancel Plan"
+                              )}
+                            </button>}
+                          </div>
+                        )}
+                      </div>
+                    )} */}
+
+                    {/* Free Trial Button */}
+
+                    {plan.id === "enterprise" && (
+                      <button
+                        type="button"
+                        onClick={() => handlePlanSelection(plan, false)}
+                        disabled={loading}
+                        className="w-full bg-gradient-to-r from-cyan-500 to-blue-600 hover:shadow-cyan-500/20 text-white font-medium py-3 px-6 rounded-lg transition-all hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                      >
+                        {isProcessing ? (
+                          <>
+                            <TbLoader2 className="w-4 h-4 animate-spin" />
+                            Processing...
+                          </>
+                        ) : (
+                          <>
+                            <FaCreditCard className="w-4 h-4" />
+                            Request Demo
+                            <FaArrowRight className="w-4 h-4" />
+                          </>
+                        )}
+                      </button>
+                    )}
+                    {plan.id !== "enterprise" && (
+                      <button
+                        onClick={() => handlePlanSelection(plan, true)}
+                        disabled={loading}
+                        style={{
+                          borderColor: '#7efefd',
+                          color: '#7efefd',
+                          backgroundColor: 'transparent'
+                        }}
+                        className="w-full mt-3 px-8 py-2 font-semibold border-2 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+                      >
+                        {isProcessing ? (
+                          <>
+                            <TbLoader2 className="w-4 h-4 animate-spin" />
+                            Processing...
+                          </>
+                        ) : (
+                          <>
+                            <FaCreditCard className="w-4 h-4" />
+                            Try Free
+                          </>
+                        )}
+                      </button>
+                    )}
+
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+
+          {/* Current Plan Summary */}
+          {currentPlan && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="mt-8 flex justify-center"
+            >
+              <div className="bg-cyan-800/20 border border-cyan-500/50 rounded-xl p-6 flex flex-col items-center gap-3 hover:bg-cyan-800/30 transition-colors max-w-sm">
+                <div className="flex items-center gap-2 text-cyan-300">
+                  <SiTarget className="w-5 h-5" />
+                  <span className="font-semibold text-lg">
+                    Current Plan: {plans.find(p => p.id === currentPlan)?.name}
+                  </span>
+                </div>
+
+                {isfreeactive && (
+                  <div className="text-green-400 text-sm bg-green-900/30 px-3 py-1 rounded-lg">
+                    Free Trial Active
+                  </div>
+                )}
+
+                <button
+                  type="button"
+                  onClick={() => handleCancelPlan(currentPlan)}
+                  disabled={loading}
+                  className="bg-red-600 hover:bg-red-700 text-white font-medium py-3 px-6 rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                >
+                  {loading && selectedPlan === "cancel" ? (
+                    <>
+                      <TbLoader2 className="w-4 h-4 animate-spin" />
+                      Canceling...
+                    </>
+                  ) : (
+                    "Cancel Plan"
+                  )}
+                </button>
+              </div>
+
+            </motion.div>
+          )}
+        </div>
+      </section>
+
+      {/* Confirmation Dialog */}
+      <ConfirmationDialog
+        isOpen={confirmDialog.isOpen}
+        onClose={closeConfirmDialog}
+        onConfirm={executeConfirmedAction}
+        title={confirmDialog.title}
+        message={confirmDialog.message}
+        type={confirmDialog.type}
+        loading={confirmDialog.loading}
+      />
+    </>
+  );
+}
