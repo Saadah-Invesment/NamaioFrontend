@@ -8,11 +8,11 @@ import Header from "@/components/Header";
 import SignalFAQ from "@/components/SignalFAQ";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "General FAQ | Tezcai",
+  title: "General FAQ | Namaio",
   description:
-    "Find answers to frequently asked questions about Tezcai. Learn how our smart trading software works, account setup, security, pricing, and more.",
+    "Find answers to frequently asked questions about Namaio. Learn how our smart trading software works, account setup, security, pricing, and more.",
   alternates: {
-    canonical: "/faq", // 👈 becomes https://tezcai.com/faq
+    canonical: "/faq", // 👈 becomes https://namaio.com/faq
   },
 };
 function GeneralFaqSection() {
@@ -20,7 +20,7 @@ function GeneralFaqSection() {
   return (
     <div>
       <Header />
-      <h1 className="text-gray-900 text-xs" > Tezcai | Automated Crypto Trading</h1>
+      <h1 className="text-gray-900 text-xs" > Namaio | Automated Crypto Trading</h1>
       <GeneralFaq />
       <Footer />
     </div>

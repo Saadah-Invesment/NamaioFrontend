@@ -19,7 +19,7 @@ const AffiliateFaq = () => {
         {
             question: "How does the affiliate program work?",
             answer:
-                "Invite users to Tezcai using your referral link. When those users trade, you earn lifetime commissions (1 to 2%) based on their trading profits. Earnings are tracked in real time inside your affiliate dashboard.",
+                "Invite users to Namaio using your referral link. When those users trade, you earn lifetime commissions (1 to 2%) based on their trading profits. Earnings are tracked in real time inside your affiliate dashboard.",
         },
         {
             question: "What are the commission tiers?",
@@ -29,7 +29,7 @@ const AffiliateFaq = () => {
         {
             question: "Do affiliates earn lifetime commissions?",
             answer:
-                "Yes. As long as your referred users continue trading with Tezcai, you keep earning commissions for life.",
+                "Yes. As long as your referred users continue trading with Namaio, you keep earning commissions for life.",
         },
         {
             question: "When and how do I get paid?",

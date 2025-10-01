@@ -1,6 +1,6 @@
 
 ```
-Tezcai-landing-page
+Namaio-landing-page
 ├─ .env.example
 ├─ .env.production
 ├─ .eslintrc.json

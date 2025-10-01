@@ -46,7 +46,7 @@ export default function HowToUse() {
         },
         'how-to-connect': {
             title: 'How To Connect API',
-            description: 'How To Connect API with Tezcai',
+            description: 'How To Connect API with Namaio',
             embedUrl: 'https://www.youtube.com/embed/64TPgJz69wA?si=69hvWIn4F0Ha9BCN'
         },
     };
@@ -55,7 +55,7 @@ export default function HowToUse() {
         <div className="min-h-screen bg-gray-900">
             <header className="mt-10">
                 <div className="max-w-7xl mx-auto px-4 py-2 sm:px-3 lg:px-3">
-                    <h1 className="text-3xl font-bold text-white">How To Use Tezcai Video Library</h1>
+                    <h1 className="text-3xl font-bold text-white">How To Use Namaio Video Library</h1>
                     <p className="mt-2 text-lg text-gray-300">
                         Watch this quick series of videos to fully understand how each features and functions works.
                     </p>

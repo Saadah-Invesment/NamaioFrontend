@@ -284,7 +284,7 @@ export default function DashboardPage() {
 
         <div className="flex items-center gap-2">
           {!apikeyError && apiKey && <div className="flex items-center">
-            <span className="text-white">Tezcai Bot Status:</span>
+            <span className="text-white">Namaio Bot Status:</span>
             {loadingApiKey ? <div>loading...</div> : <button
               onClick={toggleActive}
               className="text-xl ml-2 px-2"

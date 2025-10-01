@@ -63,7 +63,7 @@ const CreateTestimonial: React.FC<CreateTestimonialProps> = ({ onSuccess }) => {
         setLoading(true);
 
         try {
-            await axios.post("https://api.tezcai.com/api/testimonials/add/", formData);
+            await axios.post("https://api.namaio.com/api/testimonials/add/", formData);
             toast.success(" Testimonial added successfully!");
 
             // Reset form

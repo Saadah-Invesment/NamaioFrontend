@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   let blog: Blog | null = null;
 
   try {
-    const res = await axios.get(`https://api.tezcai.com/api/blog/blogs/${slug}`);
+    const res = await axios.get(`https://api.namaio.com/api/blog/blogs/${slug}`);
     blog = res.data;
   } catch (error) {
     console.error(error);
@@ -32,7 +32,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
 
   return {
     title: blog?.meta_title || "Blog",
-    description: blog?.meta_description || "Tezcai Blog",
+    description: blog?.meta_description || "Namaio Blog",
     openGraph: {
       title: blog?.meta_title,
       description: blog?.meta_description,
@@ -46,7 +46,7 @@ export default async function BlogDetail({ params }: Params) {
   let blog: Blog | null = null;
 
   try {
-    const res = await axios.get(`https://api.tezcai.com/api/blog/blogs/${slug}`);
+    const res = await axios.get(`https://api.namaio.com/api/blog/blogs/${slug}`);
     blog = res.data;
   } catch (error) {
     console.error(error);
@@ -105,7 +105,7 @@ export default async function BlogDetail({ params }: Params) {
 
       {/* Footer / Author */}
       <div className="mt-12 border-t pt-6 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
-        <p>✍️ Written by <span className="font-medium">Tezcai Team</span></p>
+        <p>✍️ Written by <span className="font-medium">Namaio Team</span></p>
         {/* <p>📅 Published: <span className="font-medium"> {new Date().toDateString()} </span></p> */}
       </div>
 

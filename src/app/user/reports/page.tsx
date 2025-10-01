@@ -191,7 +191,7 @@ export default function ReportsPage() {
         if (!filteredReports.length) return;
         const headers = [
             "Month", "Total Trades", "Winrate %", "Total PnL %",
-            "Gross Profit", "Net Profit After Fee", "Tezcai Fee", "Affiliate commission",
+            "Gross Profit", "Net Profit After Fee", "Namaio Fee", "Affiliate commission",
             "Payment Status", "Paid Date"
         ];
         const csvContent = [
@@ -279,11 +279,11 @@ export default function ReportsPage() {
                             <p className="text-lg font-bold">{formatCurrency(summary.summary?.total_profit)}</p>
                         </div>
                         <div className="p-3 bg-gray-800 rounded">
-                            <p className="text-green-400">Net Profit After Tezcai</p>
+                            <p className="text-green-400">Net Profit After Namaio</p>
                             <p className="text-lg font-bold">{formatCurrency(summary.summary?.net_profit_after_tezcai)}</p>
                         </div>
                         <div className="p-3 bg-gray-800 rounded">
-                            <p className="text-secondary">Tezcai Fee</p>
+                            <p className="text-secondary">Namaio Fee</p>
                             <p className="text-lg font-bold">{formatCurrency(summary.summary?.tezcai_fee)}</p>
                         </div>
                         <div className="p-3 bg-gray-800 rounded">
@@ -417,7 +417,7 @@ export default function ReportsPage() {
                                         <th className="px-4 py-2">Gross Profit</th>
                                         <th className="px-4 py-2">Net Profit</th>
                                         <th className="px-4 py-2">Affiliate Commission</th>
-                                        <th className="px-4 py-2">Tezcai Fee</th>
+                                        <th className="px-4 py-2">Namaio Fee</th>
                                         <th className="px-4 py-2">Status</th>
                                         <th className="px-4 py-2">Action</th>
                                     </tr>

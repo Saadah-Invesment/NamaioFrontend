@@ -4,9 +4,9 @@ import BlogLayout from "./BlogLayout";
 
 
 export const metadata: Metadata = {
-    title: "Tezcai Blog | Crypto Trading Insights, News & Strategies",
+    title: "Namaio Blog | Crypto Trading Insights, News & Strategies",
     description:
-        "Read the Tezcai Blog for the latest updates on crypto trading, market insights, strategies, and platform news. Stay informed and trade smarter with Tezcai.",
+        "Read the Namaio Blog for the latest updates on crypto trading, market insights, strategies, and platform news. Stay informed and trade smarter with Namaio.",
     alternates: {
         canonical: "/blog",
     },

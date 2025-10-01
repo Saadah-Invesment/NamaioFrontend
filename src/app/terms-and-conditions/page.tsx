@@ -6,11 +6,11 @@ import Footer from "@/components/Footer";
 // move your UI into a client component
 
 export const metadata: Metadata = {
-  title: "Terms and Conditions | Tezcai",
+  title: "Terms and Conditions | Namaio",
   description:
-    "Read the Terms and Conditions of Tezcai to understand the rules, guidelines, and responsibilities while using our trading platform.",
+    "Read the Terms and Conditions of Namaio to understand the rules, guidelines, and responsibilities while using our trading platform.",
   alternates: {
-    canonical: "/terms-and-conditions", // https://tezcai.com/terms-and-conditions
+    canonical: "/terms-and-conditions", // https://namaio.com/terms-and-conditions
   },
 };
 

@@ -1,7 +1,7 @@
 import axios from "axios";
 import { clearAllLocalStorage } from "./clearstorage";
 import { jwtDecode } from "jwt-decode";
-const API_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://api.tezcai.com/api";
+const API_BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://api.namaio.com/api";
 type DecodedToken = { subscription?: string;[key: string]: any };
 export const loginapi = async (username: string, password: string) => {
   const res = await axios.post(`${API_BASE_URL}/users/login/`, { username, password }, {

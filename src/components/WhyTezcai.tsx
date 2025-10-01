@@ -24,7 +24,7 @@ export default function Differentiators() {
         {
             icon: <FiLayers className="w-6 h-6" />,
             title: "Institutional-Grade Scalability",
-            description: "From individual traders to funds and prop firms, Tezcai supports large-scale, multi-account deployments with custom strategies.",
+            description: "From individual traders to funds and prop firms, Namaio supports large-scale, multi-account deployments with custom strategies.",
             highlight: "large-scale deployments"
         }
     ]
@@ -35,7 +35,7 @@ export default function Differentiators() {
                 {/* Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-                        Why Tezcai Is Different From Other Bots
+                        Why Namaio Is Different From Other Bots
                     </h2>
 
                 </div>

@@ -6,7 +6,7 @@ import Footer from "@/components/Footer";
 export default function Layout({ children }: { children: React.ReactNode }) {
     return <div>
         <Header />
-        <h1 className="text-gray-900 text-xs" > Tezcai | Automated Crypto Trading</h1>
+        <h1 className="text-gray-900 text-xs" > Namaio | Automated Crypto Trading</h1>
         {children}
         <Footer />
     </div>;

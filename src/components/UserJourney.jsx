@@ -53,7 +53,7 @@ export default function UserJourney() {
       instructions: [
         "Click on your profile icon → Account  → API Management",
         "Click 'Create API Key'",
-        "Name it Tezcai or similar",
+        "Name it Namaio or similar",
         "Under IP access restrictions add our server IP  (optional for Okx) ",
         `Enable "Trade" or "Spot & Margin Trading" (DO NOT enable withdrawals for security)`,
         "Save your credentials securely"
@@ -67,11 +67,11 @@ export default function UserJourney() {
     },
     {
       step: "Step 4",
-      title: "Connect to Tezcai",
+      title: "Connect to Namaio",
       subtitle: "Link your trading account",
       icon: FiLink,
       instructions: [
-        "Login to your Tezcai account",
+        "Login to your Namaio account",
         "Navigate to 'Settings'",
         "Choose your crypto platfrom",
         "Copy & paste both the API Key and Secret Key or Passphrase",
@@ -88,7 +88,7 @@ export default function UserJourney() {
     {
       step: "Step 5",
       title: "Start Smart Trading",
-      subtitle: "Let Tezcai work for you",
+      subtitle: "Let Namaio work for you",
       icon: FiPlay,
       instructions: [
         "Review your connection status",

@@ -3,7 +3,7 @@
 export default function SubscriptionTerms() {
     return (
         <div>
-<h4 className="font-bold text-lg mb-3">Tezcai Key Facts You Must Understand</h4>
+<h4 className="font-bold text-lg mb-3">Namaio Key Facts You Must Understand</h4>
 
               <div className="space-y-4">
                 <div>
@@ -25,7 +25,7 @@ export default function SubscriptionTerms() {
                 <div>
                   <h5 className="font-semibold">3. No Financial Advice:</h5>
                   <ul className="list-disc pl-5 space-y-1 mt-1">
-                    <li>Tezcai is a trading tool, not an advisor.</li>
+                    <li>Namaio is a trading tool, not an advisor.</li>
                     <li>You make your own trading decisions.</li>
                   </ul>
                 </div>

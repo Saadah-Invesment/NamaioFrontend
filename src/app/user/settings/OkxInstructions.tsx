@@ -134,7 +134,7 @@ export default function OkxApiInstructions({ publicIP }: OkxSetupWizardProps) {
                     <p>
                         <b>Step 2:</b> Click <span className="">Create API Key</span>{" "}
                         and API key name as{" "}
-                        <span className="text-blue-400 font-semibold">Tezcai</span>.
+                        <span className="text-blue-400 font-semibold">Namaio</span>.
                     </p>
                     <p>
                         <b>Step 3:</b> Purpose <span className=""> API Trading</span>
@@ -144,7 +144,7 @@ export default function OkxApiInstructions({ publicIP }: OkxSetupWizardProps) {
                         <b>Step 4:</b> IP address allowlist (optional)
                     </p>
                     <p>
-                        → Copy this Tezcai IP{" "}
+                        → Copy this Namaio IP{" "}
                         <button
                             onClick={() => handleCopy(publicIP)}
                             className="bg-gray-700/50 px-2 py-1 rounded hover:bg-gray-600 transition"
@@ -184,7 +184,7 @@ export default function OkxApiInstructions({ publicIP }: OkxSetupWizardProps) {
             ),
         },
         {
-            title: "Part 5: Connect OKX to Tezcai",
+            title: "Part 5: Connect OKX to Namaio",
             content: (
                 <div className="space-y-4 text-lg">
                     <p>
@@ -195,7 +195,7 @@ export default function OkxApiInstructions({ publicIP }: OkxSetupWizardProps) {
                     </p>
                     <p>
                         <b>Step 2:</b> Paste them into{" "}
-                        <span className="text-blue-400">Tezcai Platform → Settings</span>.
+                        <span className="text-blue-400">Namaio Platform → Settings</span>.
                     </p>
                     <p>
                         <b>Step 3:</b> Click{" "}

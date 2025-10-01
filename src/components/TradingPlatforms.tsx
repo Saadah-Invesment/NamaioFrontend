@@ -100,10 +100,10 @@ const TradingPlatformsSection = () => {
           status: "Primary",
           fee: "0.2% per round-trip : (with $10,000 fund in your wallet you can achieve this %)",
           features: ["Fully regulated", "US & CA compliant", "Low fees"],
-          description: "Fully regulated in both the US and Canada. With Tezcai's trading style, even smaller accounts quickly qualify for low fees."
+          description: "Fully regulated in both the US and Canada. With Namaio's trading style, even smaller accounts quickly qualify for low fees."
         }
       ],
-      explanation: "Fully regulated in both the US and Canada. With Tezcai's trading style, even smaller accounts quickly qualify for low fees, if you go for pro account (~0.2% per round-trip)."
+      explanation: "Fully regulated in both the US and Canada. With Namaio's trading style, even smaller accounts quickly qualify for low fees, if you go for pro account (~0.2% per round-trip)."
     }
   ];
 
@@ -121,7 +121,7 @@ const TradingPlatformsSection = () => {
     {
       icon: FiTrendingUp,
       title: "Seamless integration",
-      description: "To keep Tezcai running smoothly for your trading."
+      description: "To keep Namaio running smoothly for your trading."
     }
   ];
 
@@ -134,12 +134,12 @@ const TradingPlatformsSection = () => {
           <div className="inline-flex items-center gap-3 bg-gray-800 px-8 py-4 rounded-full border border-blue-500/30 mb-8">
             <FiGlobe className="w-7 h-7 text-blue-400" />
             <h2 className="text-2xl font-bold text-white">
-              Which Exchange Should You Use With Tezcai?
+              Which Exchange Should You Use With Namaio?
             </h2>
           </div>
 
           <h2 className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-            Tezcai works worldwide, but the best exchange for you depends on where you live.
+            Namaio works worldwide, but the best exchange for you depends on where you live.
             To give you the best results, we recommend the following platforms by region:
           </h2>
         </div>
@@ -245,7 +245,7 @@ const TradingPlatformsSection = () => {
           </div>
           <div className='flex justify-center ' >
             <h6 className="text-lg text-gray-300 ">
-              Wherever you are in the world, Tezcai connects you to the best exchange for your region,
+              Wherever you are in the world, Namaio connects you to the best exchange for your region,
               so you can trade confidently while we handle the rest.
             </h6>
           </div>
@@ -257,7 +257,7 @@ const TradingPlatformsSection = () => {
           <br />
           <p className="text-xl text-gray-300 mb-6 max-w-7xl mx-auto">
             If you Know a reliable trading platform with API access?
-            Share it with us and we'll test and integrate it into Tezcai,
+            Share it with us and we'll test and integrate it into Namaio,
             so the community can benefit from more trusted options.
           </p>
 

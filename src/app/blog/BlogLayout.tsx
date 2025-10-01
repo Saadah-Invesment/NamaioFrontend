@@ -32,8 +32,8 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
         const fetchData = async () => {
             try {
                 const [catRes, blogRes] = await Promise.all([
-                    axios.get('https://api.tezcai.com/api/blog/categories/'),
-                    axios.get('https://api.tezcai.com/api/blog/blogs/')
+                    axios.get('https://api.namaio.com/api/blog/categories/'),
+                    axios.get('https://api.namaio.com/api/blog/blogs/')
                 ]);
                 setCategories(catRes.data);
                 if (blogRes.data.length > 0) {
@@ -55,9 +55,9 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
         <div>
             <Header />
 
-            <h1 className="text-gray-900 text-xs" > Tezcai | Automated Crypto Trading</h1>
+            <h1 className="text-gray-900 text-xs" > Namaio | Automated Crypto Trading</h1>
             <div className="max-w-7xl mx-auto px-4 py-8">
-                <h2 className='text-3xl font-bold mb-5'>Tezcai Blog</h2>
+                <h2 className='text-3xl font-bold mb-5'>Namaio Blog</h2>
                 {/* Featured Blog Section (only show on blog list & category pages) */}
                 {!isIndividualBlog && latestBlog && (
                     <Link

@@ -6,10 +6,10 @@ import Script from "next/script";
 const orgSchema = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Tezcai",
-    url: "https://tezcai.com/",
-    logo: "https://tezcai.com/_next/image?url=%2Fimages%2Ftezcai-logo.png&w=640&q=75",
-    email: "info@tezcai.com",
+    name: "Namaio",
+    url: "https://namaio.com/",
+    logo: "https://namaio.com/_next/image?url=%2Fimages%2Ftezcai-logo.png&w=640&q=75",
+    email: "info@namaio.com",
     address: {
         "@type": "PostalAddress",
         streetAddress: "Ali Salem Obaid Bin Wanis Building, Al Dana East 4_2 P.O. Box 41014",
@@ -30,9 +30,9 @@ const orgSchema = {
     sameAs: [
         "https://www.linkedin.com/company/tezcaicom",
         "https://www.instagram.com/tezcai_com",
-        "https://www.tiktok.com/@tezcai.com",
-        "https://www.facebook.com/tezcai",
-        "https://www.youtube.com/@tezcai",
+        "https://www.tiktok.com/@namaio.com",
+        "https://www.facebook.com/namaio",
+        "https://www.youtube.com/@namaio",
         "https://x.com/tezcai_",
     ],
 };
@@ -42,18 +42,18 @@ const pageSchemas: Record<string, any> = {
     "/how-it-works": {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        url: "https://tezcai.com/how-it-works",
+        url: "https://namaio.com/how-it-works",
         name: "How It Works",
         description:
-            "Learn how to get started with Tezcai's automated crypto trading platform in three simple steps: connect your exchange, fund your account, and let Tezcai trade automatically.",
+            "Learn how to get started with Namaio's automated crypto trading platform in three simple steps: connect your exchange, fund your account, and let Namaio trade automatically.",
         mainEntity: {
             "@type": "HowTo",
-            name: "Getting Started with Tezcai in 3 Simple Steps",
+            name: "Getting Started with Namaio in 3 Simple Steps",
             step: [
                 {
                     "@type": "HowToStep",
                     name: "Connect your Crypto Exchange account",
-                    text: "Connect your exchange API securely via read-only API with trading permission enabled and withdrawals disabled. Tezcai never takes custody.",
+                    text: "Connect your exchange API securely via read-only API with trading permission enabled and withdrawals disabled. Namaio never takes custody.",
                 },
                 {
                     "@type": "HowToStep",
@@ -63,11 +63,11 @@ const pageSchemas: Record<string, any> = {
                 {
                     "@type": "HowToStep",
                     name: "Enable automated trading",
-                    text: "Activate 24/7 automated trading. Tezcai's smart software handles all market analysis and execution while you track performance in real-time.",
+                    text: "Activate 24/7 automated trading. Namaio's smart software handles all market analysis and execution while you track performance in real-time.",
                 },
             ],
             totalTime: "PT5M",
-            tool: "Tezcai Automated Trading Platform",
+            tool: "Namaio Automated Trading Platform",
             estimatedCost: {
                 "@type": "MonetaryAmount",
                 currency: "USD",
@@ -82,50 +82,50 @@ const pageSchemas: Record<string, any> = {
     '/pricing': {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        url: "https://tezcai.com/pricing",
+        url: "https://namaio.com/pricing",
         name: "Pricing",
-        description: "Tezcai Pricing Plans: Simple Subscription + Performance Based Profit Share. Early Adopter Offer: First month FREE.",
+        description: "Namaio Pricing Plans: Simple Subscription + Performance Based Profit Share. Early Adopter Offer: First month FREE.",
         mainEntity: [
             {
                 "@type": "Product",
                 name: "Signals Plan",
-                description: "For traders who prefer manual control, but want Tezcai’s smart precision. Smart filtered trade signals, momentum identification, trend confirmation, volume analysis, clear entry & exit points.",
-                offers: { "@type": "Offer", price: "9.99", priceCurrency: "USD", url: "https://tezcai.com/pricing", availability: "https://schema.org/InStock" },
+                description: "For traders who prefer manual control, but want Namaio’s smart precision. Smart filtered trade signals, momentum identification, trend confirmation, volume analysis, clear entry & exit points.",
+                offers: { "@type": "Offer", price: "9.99", priceCurrency: "USD", url: "https://namaio.com/pricing", availability: "https://schema.org/InStock" },
             },
             // {
             //     "@type": "Product",
             //     name: "Starter Plan",
             //     description: "Best for hands-off auto trading — start small, test results, and scale later. Low risk entry, automated trading, two trades daily, live dashboard, 15% profit share. Early Adopter Offer: First month FREE! Most Popular Plan.",
-            //     offers: { "@type": "Offer", price: "19.99", priceCurrency: "USD", url: "https://tezcai.com/pricing", availability: "https://schema.org/InStock", eligibleQuantity: { "@type": "QuantitativeValue", value: 1 } },
+            //     offers: { "@type": "Offer", price: "19.99", priceCurrency: "USD", url: "https://namaio.com/pricing", availability: "https://schema.org/InStock", eligibleQuantity: { "@type": "QuantitativeValue", value: 1 } },
             // },
             {
                 "@type": "Product",
                 name: "Pro Plan",
                 description: "Best for users who want more trade and more results. Unlimited high-probability trades, priority support, live chat support, weekly insights report, 15% profit share.",
-                offers: { "@type": "Offer", price: "29.99", priceCurrency: "USD", url: "https://tezcai.com/pricing", availability: "https://schema.org/InStock" },
+                offers: { "@type": "Offer", price: "29.99", priceCurrency: "USD", url: "https://namaio.com/pricing", availability: "https://schema.org/InStock" },
             },
             {
                 "@type": "Product",
                 name: "Enterprise Plan",
                 description: "For funds, prop firms & high-net-worth investors. Custom white label bot, dedicated account manager, custom strategies, API/webhook integration, priority execution, optional security audits, 15% profit share. Available upon request via demo.",
-                offers: { "@type": "Offer", price: "0", priceCurrency: "USD", url: "https://tezcai.com/pricing", availability: "https://schema.org/InStock" },
+                offers: { "@type": "Offer", price: "0", priceCurrency: "USD", url: "https://namaio.com/pricing", availability: "https://schema.org/InStock" },
             },
         ],
     },
     'affiliate': {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        url: "https://tezcai.com/affiliate",
+        url: "https://namaio.com/affiliate",
         name: "Affiliate Program",
-        description: "Join Tezcai's Affiliate Program and earn lifetime commissions by referring traders. Soft Launch: A small group of early affiliates can secure their spot and start earning before the public rollout.",
+        description: "Join Namaio's Affiliate Program and earn lifetime commissions by referring traders. Soft Launch: A small group of early affiliates can secure their spot and start earning before the public rollout.",
         mainEntity: [
             {
                 "@type": "Service",
-                name: "Tezcai Affiliate Program - Bronze Tier",
+                name: "Namaio Affiliate Program - Bronze Tier",
                 description: "Earn 1% commission on user's profits for users who trade up to $100k. Lifetime commissions with transparent dashboard access. Soft Launch early access available.",
                 offers: {
                     "@type": "Offer",
-                    url: "https://tezcai.com/affiliate",
+                    url: "https://namaio.com/affiliate",
                     price: "0",
                     priceCurrency: "USD",
                     availability: "https://schema.org/InStock"
@@ -133,11 +133,11 @@ const pageSchemas: Record<string, any> = {
             },
             {
                 "@type": "Service",
-                name: "Tezcai Affiliate Program - Silver Tier",
+                name: "Namaio Affiliate Program - Silver Tier",
                 description: "Earn 1.5% commission on user's profits for users who trade between $100k and $1M. Lifetime commissions, monthly reports, and dashboard access. Soft Launch early access available.",
                 offers: {
                     "@type": "Offer",
-                    url: "https://tezcai.com/affiliate",
+                    url: "https://namaio.com/affiliate",
                     price: "0",
                     priceCurrency: "USD",
                     availability: "https://schema.org/InStock"
@@ -145,11 +145,11 @@ const pageSchemas: Record<string, any> = {
             },
             {
                 "@type": "Service",
-                name: "Tezcai Affiliate Program - Gold Tier",
+                name: "Namaio Affiliate Program - Gold Tier",
                 description: "Earn 2% commission on user's profits for users who trade over $1M. Lifetime commissions, bonuses, monthly reports, and dashboard access. Soft Launch early access available.",
                 offers: {
                     "@type": "Offer",
-                    url: "https://tezcai.com/affiliate",
+                    url: "https://namaio.com/affiliate",
                     price: "0",
                     priceCurrency: "USD",
                     availability: "https://schema.org/InStock"
@@ -160,20 +160,20 @@ const pageSchemas: Record<string, any> = {
     'benchmark': {
         "@context": "https://schema.org",
         "@type": "WebPage",
-        "url": "https://tezcai.com/benchmark",
-        "name": "Tezcai Benchmark | Tezcai 30 Index Performance",
-        "description": "Track the Tezcai 30 Index benchmark with real-time performance data, daily market comparisons, index constituents, and detailed insights into why performance may differ from the market.",
+        "url": "https://namaio.com/benchmark",
+        "name": "Namaio Benchmark | Namaio 30 Index Performance",
+        "description": "Track the Namaio 30 Index benchmark with real-time performance data, daily market comparisons, index constituents, and detailed insights into why performance may differ from the market.",
 
         "mainEntity": [
             {
                 "@type": "Report",
-                "name": "Tezcai 30 Benchmark Report",
-                "description": "Benchmark data showing Tezcai 30 Index performance vs the market. Includes daily performance, outperformance comparisons, and cumulative performance.",
-                "url": "https://tezcai.com/benchmark",
+                "name": "Namaio 30 Benchmark Report",
+                "description": "Benchmark data showing Namaio 30 Index performance vs the market. Includes daily performance, outperformance comparisons, and cumulative performance.",
+                "url": "https://namaio.com/benchmark",
                 "publisher": {
                     "@type": "Organization",
-                    "@id": "https://tezcai.com#organization",
-                    "name": "Tezcai"
+                    "@id": "https://namaio.com#organization",
+                    "name": "Namaio"
                 }
             },
             {
@@ -202,15 +202,15 @@ const pageSchemas: Record<string, any> = {
                 "mainEntity": [
                     {
                         "@type": "Question",
-                        "name": "Why might Tezcai performance differ from the market?",
+                        "name": "Why might Namaio performance differ from the market?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "Tezcai does not trade 24/7 but only when trend, volume, and risk filters align. This avoids chasing false moves and focuses on consistent growth with controlled risk."
+                            "text": "Namaio does not trade 24/7 but only when trend, volume, and risk filters align. This avoids chasing false moves and focuses on consistent growth with controlled risk."
                         }
                     },
                     {
                         "@type": "Question",
-                        "name": "How does Tezcai manage risk during trading?",
+                        "name": "How does Namaio manage risk during trading?",
                         "acceptedAnswer": {
                             "@type": "Answer",
                             "text": "Risk management is prioritized by cutting trades early to avoid large drawdowns, reducing exposure in red markets, and focusing on capital preservation over short-term gains."
@@ -218,10 +218,10 @@ const pageSchemas: Record<string, any> = {
                     },
                     {
                         "@type": "Question",
-                        "name": "What is the Tezcai 30 Benchmark?",
+                        "name": "What is the Namaio 30 Benchmark?",
                         "acceptedAnswer": {
                             "@type": "Answer",
-                            "text": "The Tezcai 30 Benchmark reflects broader market movement. Performance may vary as Tezcai trades only on qualified signals, focusing on long-term safety and consistency."
+                            "text": "The Namaio 30 Benchmark reflects broader market movement. Performance may vary as Namaio trades only on qualified signals, focusing on long-term safety and consistency."
                         }
                     }
                 ]
@@ -231,14 +231,14 @@ const pageSchemas: Record<string, any> = {
     'general-faq': {
         "@context": "https://schema.org",
         "@type": "FAQPage",
-        "url": "https://tezcai.com/faq/general-faq",
+        "url": "https://namaio.com/faq/general-faq",
         "mainEntity": [
             {
                 "@type": "Question",
-                "name": "How does Tezcai trade for my account?",
+                "name": "How does Namaio trade for my account?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Tezcai connects securely to your exchange account through API keys. It executes buy and sell orders automatically while you track trades in real time from your dashboard. Your money never leaves your exchange."
+                    "text": "Namaio connects securely to your exchange account through API keys. It executes buy and sell orders automatically while you track trades in real time from your dashboard. Your money never leaves your exchange."
                 }
             },
             {
@@ -246,7 +246,7 @@ const pageSchemas: Record<string, any> = {
                 "name": "What are the minimum and maximum wallet limits for exchanges?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "We recommend a minimum balance of US$3,000 for best results. Tezcai will not manage wallets exceeding US$2 million. Above this, profits should be withdrawn."
+                    "text": "We recommend a minimum balance of US$3,000 for best results. Namaio will not manage wallets exceeding US$2 million. Above this, profits should be withdrawn."
                 }
             },
             {
@@ -286,7 +286,7 @@ const pageSchemas: Record<string, any> = {
                 "name": "Do I control my funds?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes, 100% of your funds remain in your own exchange account. Tezcai only has trading permission."
+                    "text": "Yes, 100% of your funds remain in your own exchange account. Namaio only has trading permission."
                 }
             },
             {
@@ -294,28 +294,28 @@ const pageSchemas: Record<string, any> = {
                 "name": "How do I connect my crypto exchange?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Connect via read-only API keys with trading permissions only. Ensure your wallet is funded (recommended US $3,000 to start, max $2M). Once connected, Tezcai trades automatically 24/7 while you track performance."
+                    "text": "Connect via read-only API keys with trading permissions only. Ensure your wallet is funded (recommended US $3,000 to start, max $2M). Once connected, Namaio trades automatically 24/7 while you track performance."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Why is Tezcai different from other bots?",
+                "name": "Why is Namaio different from other bots?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Tezcai trades selectively, not constantly. It offers live transparent profit tracking, fair pricing (subscription + profit share), and institutional scalability."
+                    "text": "Namaio trades selectively, not constantly. It offers live transparent profit tracking, fair pricing (subscription + profit share), and institutional scalability."
                 }
             },
             {
                 "@type": "Question",
-                "name": "How secure is Tezcai?",
+                "name": "How secure is Namaio?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Tezcai only has read-only API access. Funds stay in your exchange wallet. Users get daily trade logs, profit reports, audit logs, and institutional-grade security."
+                    "text": "Namaio only has read-only API access. Funds stay in your exchange wallet. Users get daily trade logs, profit reports, audit logs, and institutional-grade security."
                 }
             },
             {
                 "@type": "Question",
-                "name": "Which exchange should I use with Tezcai?",
+                "name": "Which exchange should I use with Namaio?",
                 "acceptedAnswer": {
                     "@type": "Answer",
                     "text": "Recommended exchanges: Binance or OKX for Asia, Africa & Latin America; OKX and Binance for MENA; Revolut X for UK & Europe; Gemini ActiveTrader for USA & Canada."
@@ -326,7 +326,7 @@ const pageSchemas: Record<string, any> = {
                 "name": "Why do you recommend specific exchanges?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Exchanges are chosen for low fees, trusted regulation, and seamless integration with Tezcai to ensure safety, compliance, and smooth trading."
+                    "text": "Exchanges are chosen for low fees, trusted regulation, and seamless integration with Namaio to ensure safety, compliance, and smooth trading."
                 }
             }
         ]
@@ -340,7 +340,7 @@ const pageSchemas: Record<string, any> = {
                 "name": "How does the affiliate program work?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Invite users to Tezcai using your referral link. When those users trade, you earn lifetime commissions (1 to 2%) based on their trading profits. Earnings are tracked in real time inside your affiliate dashboard."
+                    "text": "Invite users to Namaio using your referral link. When those users trade, you earn lifetime commissions (1 to 2%) based on their trading profits. Earnings are tracked in real time inside your affiliate dashboard."
                 }
             },
             {
@@ -356,7 +356,7 @@ const pageSchemas: Record<string, any> = {
                 "name": "Do affiliates earn lifetime commissions?",
                 "acceptedAnswer": {
                     "@type": "Answer",
-                    "text": "Yes. As long as your referred users continue trading with Tezcai, you keep earning commissions for life."
+                    "text": "Yes. As long as your referred users continue trading with Namaio, you keep earning commissions for life."
                 }
             },
             {

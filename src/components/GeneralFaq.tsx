@@ -15,14 +15,14 @@ import {
 const GeneralFaq = () => {
     const faqs = [
         {
-            question: "How does Tezcai trade for my account?",
+            question: "How does Namaio trade for my account?",
             answer:
-                "Tezcai connects securely to your exchange account through API keys (you keep full control of your funds). The software automatically executes buy and sell orders based on its strategy, while you can track all trades in real time from your dashboard. Your money never leaves your exchange, Tezcai only places trades on your behalf.",
+                "Namaio connects securely to your exchange account through API keys (you keep full control of your funds). The software automatically executes buy and sell orders based on its strategy, while you can track all trades in real time from your dashboard. Your money never leaves your exchange, Namaio only places trades on your behalf.",
             icon: FiCpu,
         },
         {
             question: "What are the minimum and maximum wallet limits for exchanges?",
-            answer: "We recommend maintaining a minimum balance of US$3,000  in your exchange wallet for optimal performance. Tezcai will not manage wallets exceeding US$2 million. Once your wallet reaches US$2 million, we strongly advise taking profits out of the wallet.",
+            answer: "We recommend maintaining a minimum balance of US$3,000  in your exchange wallet for optimal performance. Namaio will not manage wallets exceeding US$2 million. Once your wallet reaches US$2 million, we strongly advise taking profits out of the wallet.",
         },
 
         {
@@ -64,17 +64,17 @@ const GeneralFaq = () => {
                     $3,000). Please do not add more than US&nbsp;$2,000,000.
                     <br />
                     <br />
-                    Once connected, Tezcai trades automatically 24/7 while you simply track performance.
+                    Once connected, Namaio trades automatically 24/7 while you simply track performance.
                 </>
             ),
             icon: FiCpu,
         },
         {
-            question: "Why is Tezcai different from other bots?",
+            question: "Why is Namaio different from other bots?",
             answer: (
                 <ul className="list-disc pl-6 space-y-2">
                     <li>
-                        <b>Smart Selective Trading:</b> Unlike bots that trade constantly, Tezcai trades only
+                        <b>Smart Selective Trading:</b> Unlike bots that trade constantly, Namaio trades only
                         when the odds are in your favor.
                     </li>
                     <li>
@@ -94,10 +94,10 @@ const GeneralFaq = () => {
             icon: FiTrendingUp,
         },
         {
-            question: "How secure is Tezcai?",
+            question: "How secure is Namaio?",
             answer: (
                 <ul className="list-disc pl-6 space-y-2">
-                    <li>Read-only API access — Tezcai can trade but never withdraw funds.</li>
+                    <li>Read-only API access — Namaio can trade but never withdraw funds.</li>
                     <li>Funds always remain in your exchange wallet.</li>
                     <li>Daily trade logs and profit reports in your dashboard.</li>
                     <li>Detailed audit logs and account activity tracking.</li>
@@ -107,10 +107,10 @@ const GeneralFaq = () => {
             icon: FiShield,
         },
         {
-            question: "Which exchange should I use with Tezcai?",
+            question: "Which exchange should I use with Namaio?",
             answer: (
                 <>
-                    Tezcai works worldwide, but the best exchange depends on your region:
+                    Namaio works worldwide, but the best exchange depends on your region:
                     <br />
                     <br />
                     <b>Asia, Africa & Latin America:</b> Binance (0.2% fees), OKX (0.18%).
@@ -137,10 +137,10 @@ const GeneralFaq = () => {
                             <b>Trusted regulation:</b> For safety and compliance where available.
                         </li>
                         <li>
-                            <b>Seamless integration:</b> To keep Tezcai running smoothly for your trading.
+                            <b>Seamless integration:</b> To keep Namaio running smoothly for your trading.
                         </li>
                     </ul>
-                    Wherever you are in the world, Tezcai connects you to the best exchange for your region.
+                    Wherever you are in the world, Namaio connects you to the best exchange for your region.
                 </>
             ),
             icon: FiCheckCircle,

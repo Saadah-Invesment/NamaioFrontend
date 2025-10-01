@@ -15,7 +15,7 @@ const SignalFAQ = () => {
     const faqs = [
         {
             question: "What are Smart Filtered Trade Signals?",
-            answer: "Tezcai scans over 500+ crypto pairs, applying multiple filters to detect the strongest trading setups in real time.",
+            answer: "Namaio scans over 500+ crypto pairs, applying multiple filters to detect the strongest trading setups in real time.",
             icon: FiZap,
         },
         {
@@ -66,7 +66,7 @@ const SignalFAQ = () => {
                         </div>
                     </div>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                        Clear answers on how Tezcai signals guide your trading decisions.
+                        Clear answers on how Namaio signals guide your trading decisions.
                     </p>
                 </motion.div>
 

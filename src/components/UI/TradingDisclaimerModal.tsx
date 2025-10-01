@@ -57,10 +57,10 @@ export default function TradingDisclaimerModal() {
         <div className="overflow-y-auto pr-2 flex-1">
           <p className="text-lg text-gray-300 mb-3">
             Cryptocurrency trading involves significant risk of loss and is not
-            suitable for all investors. Tezcai provides automated trading tools
+            suitable for all investors. Namaio provides automated trading tools
             and does not offer financial advice or guarantee profits. Past
             performance does not indicate future results. You are solely
-            responsible for your trading decisions. Use of Tezcai constitutes
+            responsible for your trading decisions. Use of Namaio constitutes
             acceptance of our{" "}
             <Link
               href="/termsandconditions"

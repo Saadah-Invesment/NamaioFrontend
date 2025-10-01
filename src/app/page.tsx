@@ -12,7 +12,7 @@ import Security from "@/components/Security";
 import UserJourney from "@/components/UserJourney";
 import AffiliateSection from "@/components/AffiliateSection";
 import { useEffect, useState } from "react";
-import TezcaiLogo from "@/components/Logo/TezcaiLogo";
+
 import Differentiators from "@/components/WhyTezcai";
 import FinalCallSection from "@/components/FinalCallSection";
 import FooterDisclaimer from "@/components/FooterDisclimer";
@@ -22,6 +22,8 @@ import SignalFAQ from "@/components/SignalFAQ";
 import GeneralFaq from "@/components/GeneralFaq";
 import AffiliateFaq from "@/components/AffiliateFaq";
 import BenchmarkSection from "@/components/BenchmarkSection";
+import NamaioLogo from "@/components/Logo/NamaioLogo";
+import BrokerSection from "@/components/BrokerSection";
 
 const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -50,17 +52,14 @@ const Home: React.FC = () => {
           {/* Logo with glow effect */}
           <div className="mb-8 relative">
 
-            <div className="relative bg-gray-900 backdrop-blur-xl p-6 rounded-2xl border border-gray-700/50">
-              <TezcaiLogo />
+            <div className="relative bg-background backdrop-blur-xl p-6 rounded-2xl border border-gray-700/50">
+              <NamaioLogo />
             </div>
           </div>
-
-
-
           {/* Loading text with typewriter effect */}
           <div className="text-center">
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-white via-blue-200 to-purple-200 bg-clip-text text-transparent mb-2">
-              Initializing Tezcai
+            <h2 className="text-2xl font-bold bg-gradient-to-r from-secondary  to-primary bg-clip-text text-transparent mb-2">
+              Initializing Namaio
             </h2>
           </div>
 
@@ -84,21 +83,22 @@ const Home: React.FC = () => {
     <>
       <Header />
       <Hero />
-      <BenchmarkSection />
+      {/* <BenchmarkSection /> */}
       <HowItWorks />
       <Pricing />
-      <AffiliateSection />
-      <Differentiators />
+      {/* <AffiliateSection /> */}
+      <BrokerSection />
+      {/* <Differentiators /> */}
       <Security />
-      <TradingPlatformsSection />
+      {/* <TradingPlatformsSection /> */}
       {/* <Pricing /> */}
       <FinalCallSection />
-      <Testimonials />
+      {/* <Testimonials /> */}
       <FooterDisclaimer />
-      <GeneralFaq />
+      {/* <GeneralFaq />
       <AffiliateFaq />
       <FAQ />
-      <SignalFAQ />
+      <SignalFAQ /> */}
       <Footer />
       {/* <UserJourney /> */}
     </>

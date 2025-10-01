@@ -1,12 +1,12 @@
 export const siteDetails = {
-    siteName: 'Tezcai',
-    siteUrl: 'https://tezcai.com/',
+    siteName: 'Namio',
+    siteUrl: 'https://namaio.com/',
     metadata: {
-        title: "Tezcai | Smart Automated Crypto Trading Software.",
-        description: 'Tezcai is a smart crypto trading software that automatically executes high probability, short-term trades on users’ exchange accounts.',
+        title: "Namaio | Smart Automated Forex Trading Software.",
+        description: 'Namaio is a smart forex trading software that automatically executes high probability, short-term trades on users’ exchange accounts.',
     },
     language: 'en-us',
     locale: 'en-US',
-    siteLogo: `${process.env.BASE_PATH || ''}/images/tezcai-bull-logo.png`,
+    siteLogo: `${process.env.BASE_PATH || ''}/images/namaio-bull-logo.png`,
     googleAnalyticsId: 'G-68K9YRBLGZ',
 }

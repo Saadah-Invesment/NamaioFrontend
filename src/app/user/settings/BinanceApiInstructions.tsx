@@ -75,12 +75,12 @@ export default function BinanceApiInstructions({ publicIP }: BinanceSetupWizardP
       content: (
         <div className="space-y-4 text-lg">
           <p><b>Step 1:</b> Go to <span className="">Profile → Account → API Management</span>.</p>
-          <p><b>Step 2:</b> Click <span className="">Create API</span>, choose <b>System Generated</b> and  (Label API Key to proceed)  label it as <span className="text-blue-400">Tezcai</span> and click next</p>
+          <p><b>Step 2:</b> Click <span className="">Create API</span>, choose <b>System Generated</b> and  (Label API Key to proceed)  label it as <span className="text-blue-400">Namaio</span> and click next</p>
           <p><b>Step 3:</b> Click <span className="">Edit restrictions</span></p>
           <ul className="list-disc ml-6 space-y-2">
             <li><b>Under IP access restrictions </b>
               <p> → Select  Restrict access to trusted IPs only (Recommended)</p>
-              <p> →  Copy this Tezcai IP  and  Paste it{" "} <span><button
+              <p> →  Copy this Namaio IP  and  Paste it{" "} <span><button
                 onClick={() => { handleCopy(publicIP) }}
                 className="bg-gray-700/50 px-2 py-1 rounded hover:bg-gray-600 transition"
               >
@@ -104,11 +104,11 @@ export default function BinanceApiInstructions({ publicIP }: BinanceSetupWizardP
       ),
     },
     {
-      title: "Part 5: Connect Binance to Tezcai",
+      title: "Part 5: Connect Binance to Namaio",
       content: (
         <div className="space-y-4 text-lg">
           <p><b>Step 1:</b> Copy your <span className="font-semibold">Binance API Key</span> and <span className="font-semibold">Secret Key</span>.</p>
-          <p><b>Step 2:</b> Paste them into the <span className="text-blue-400">Tezcai Platform → Settings</span>.</p>
+          <p><b>Step 2:</b> Paste them into the <span className="text-blue-400">Namaio Platform → Settings</span>.</p>
           <p><b>Step 3:</b> Click <span className="text-green-400 font-semibold">Test Connection</span>. If successful, click <b>Save Keys</b>.</p>
           <p><b>Step 4:</b> <b>Trading Status: </b> → Click <span className="text-yellow-400">Enable</span></p>
           <p><b>Step 5:</b>  Click <span className="text-blue-400">Use Binance</span>.</p>

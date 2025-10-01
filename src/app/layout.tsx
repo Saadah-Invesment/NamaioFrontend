@@ -19,7 +19,7 @@ const sourceSans = Source_Sans_3({ subsets: ['latin'] });
 export const metadata: Metadata = {
   title: siteDetails.metadata.title,
   description: siteDetails.metadata.description,
-  metadataBase: new URL("https://tezcai.com"),
+  metadataBase: new URL("https://namaio.com"),
   alternates: {
     canonical: "/", // homepage canonical
   },
@@ -37,17 +37,17 @@ export const metadata: Metadata = {
   },
   // ✅ Add keywords
   keywords: [
-    "automated crypto trading",
-    "crypto trading bot",
+    "automated forex trading",
+    "forex trading bot",
     "algorithmic trading",
     "bitcoin trading automation",
     "ethereum trading bot",
-    "Tezcai crypto platform",
+    "namaio forex platform",
   ],
   // ✅ Add publisher info
-  authors: [{ name: "Tezcai" }],
-  creator: "Tezcai",
-  publisher: "Tezcai",
+  authors: [{ name: "namaio" }],
+  creator: "namaio",
+  publisher: "namaio",
   openGraph: {
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     siteName: siteDetails.siteName,
     images: [
       {
-        url: "/images/tezcai-logo.png",
+        url: "/images/namaio-logo.png",
         width: 1200,
         height: 675,
         alt: siteDetails.siteName,
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteDetails.metadata.title,
     description: siteDetails.metadata.description,
-    images: ["/images/tezcai-logo.png"],
+    images: ["/images/namaio-logo.png"],
     creator: "@tezcai_",
   },
 };
@@ -106,11 +106,11 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "WebSite",
-              url: "https://tezcai.com/",
-              name: "Tezcai",
+              url: "https://namaio.com/",
+              name: "Namaio",
               potentialAction: {
                 "@type": "SearchAction",
-                target: "https://tezcai.com/search?q={search_term_string}",
+                target: "https://namaio.com/search?q={search_term_string}",
                 "query-input": "required name=search_term_string",
               },
             }),

@@ -31,7 +31,7 @@ const TestimonialsPage: React.FC = () => {
     const fetchTestimonials = async () => {
         try {
             const { data } = await axios.get<Testimonial[]>(
-                "https://api.tezcai.com/api/testimonials"
+                "https://api.namaio.com/api/testimonials"
             );
             setTestimonials(data);
         } catch (err) {

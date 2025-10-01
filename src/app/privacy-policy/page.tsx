@@ -5,11 +5,11 @@ import Footer from "@/components/Footer";
 // move your UI into a client component
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Tezcai",
+  title: "Privacy Policy | Namaio",
   description:
-    "Read Tezcai’s Privacy Policy to understand how we collect, use, and protect your personal data while using our smart trading platform.",
+    "Read Namaio’s Privacy Policy to understand how we collect, use, and protect your personal data while using our smart trading platform.",
   alternates: {
-    canonical: "/privacy-policy", // becomes https://tezcai.com/privacy-policy
+    canonical: "/privacy-policy", // becomes https://namaio.com/privacy-policy
   },
 };
 

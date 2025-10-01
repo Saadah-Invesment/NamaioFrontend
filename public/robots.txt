@@ -1,4 +1,4 @@
-# robots.txt for https://tezcai.com
+# robots.txt for https://namaio.com
 User-agent: *
 Allow: /
 
@@ -23,5 +23,5 @@ Disallow: /dev/
 
 Disallow: /api/
 
-Sitemap: https://tezcai.com/sitemap.xml
-# Sitemap: https://tezcai.com/blog-sitemap.xml
+Sitemap: https://namaio.com/sitemap.xml
+# Sitemap: https://namaio.com/blog-sitemap.xml

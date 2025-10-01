@@ -114,7 +114,7 @@ export default function BenchmarkSection() {
       const toStr = yesterday.toISOString().split("T")[0];
 
       const res = await axios.get(
-        `https://api.tezcai.com/api/comparison/?start=${fromStr}&end=${toStr}`,
+        `https://api.namaio.com/api/comparison/?start=${fromStr}&end=${toStr}`,
         {
           timeout: REQUEST_TIMEOUT,
           headers: {
@@ -233,13 +233,13 @@ export default function BenchmarkSection() {
     <section className="bg-gray-900 py-14">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-white mb-10 text-center">
-          📊 Performance Benchmark (Tezcai 30 Index) <br />
+          📊 Performance Benchmark (Namaio 30 Index) <br />
           <span className="text-gray-400 text-lg">(as of {data.day})</span>
         </h2>
 
         <div className="grid gap-8 md:grid-cols-3">
           <div className="bg-gray-800 rounded-2xl p-8 text-center shadow-lg">
-            <p className="text-gray-400 mb-3">Tezcai Performance</p>
+            <p className="text-gray-400 mb-3">Namaio Performance</p>
             <h3 className="text-4xl font-bold">
               {renderValue(data.bot_return, "text-secondary")}
             </h3>
@@ -260,11 +260,11 @@ export default function BenchmarkSection() {
 
         {(data.bot_return !== null || data.benchmark_return !== null) && (
           <h5 className="mt-8 text-center text-gray-300 text-lg">
-            Tezcai made{" "}
+            Namaio made{" "}
             <span className="text-secondary font-semibold">
               {safeToFixed(data.bot_return)}%
             </span>
-            , while the market (Tezcai 30 Index) made{" "}
+            , while the market (Namaio 30 Index) made{" "}
             <span className="text-blue-400 font-semibold">
               {safeToFixed(data.benchmark_return)}%
             </span>

@@ -27,8 +27,8 @@ const AffiliateSection = () => {
             Lifetime Earnings
           </h2>
           <p className="text-xl text-gray-300 max-w-5xl mx-auto">
-            Tezcai is live, you can start seeding affiliates today.
-            Refer traders to Tezcai and earn up to 2% of their trading of user’s profits for life. Your earnings are automatically tracked and updated in your real-time affiliate dashboard.
+            Namaio is live, you can start seeding affiliates today.
+            Refer traders to Namaio and earn up to 2% of their trading of user’s profits for life. Your earnings are automatically tracked and updated in your real-time affiliate dashboard.
             <br />
             <span className="text-xl text-gray-300">Affiliates earn from actual profits.</span>
           </p>
@@ -49,14 +49,14 @@ const AffiliateSection = () => {
               <div className="bg-blue-900/30 p-4 rounded-lg w-fit mx-auto mb-4">
                 <FaLink className="w-8 h-8 text-blue-400" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Invite users to Tezcai using your referral link.</h3>
+              <h3 className="text-xl font-semibold mb-2">Invite users to Namaio using your referral link.</h3>
 
             </div>
             <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all text-center">
               <div className="bg-blue-900/30 p-4 rounded-lg w-fit mx-auto mb-4">
                 <MdAutoGraph className="w-8 h-8 text-blue-400" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Let users trade with Tezcai</h3>
+              <h3 className="text-xl font-semibold mb-2">Let users trade with Namaio</h3>
 
             </div>
             <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700 hover:border-blue-500 transition-all text-center">

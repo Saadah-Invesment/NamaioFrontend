@@ -6,11 +6,11 @@ import Footer from "@/components/Footer";
 // move your UI into a client component
 
 export const metadata: Metadata = {
-  title: "Risk Disclosure | Tezcai",
+  title: "Risk Disclosure | Namaio",
   description:
-    "Understand the risks involved in trading with Tezcai’s platform. Read our Risk Disclosure for important safety and investment information.",
+    "Understand the risks involved in trading with Namaio’s platform. Read our Risk Disclosure for important safety and investment information.",
   alternates: {
-    canonical: "/risk-disclosure", // https://tezcai.com/risk-disclosure
+    canonical: "/risk-disclosure", // https://namaio.com/risk-disclosure
   },
 };
 

@@ -293,7 +293,7 @@ export default function DashboardPage() {
               </button>
 
               <p className="text-gray-300 text-lg max-w-md mx-auto">
-                Experience trading with Tezcai risk-free.
+                Experience trading with Namaio risk-free.
               </p>
               <p className="text-gray-400 text-base max-w-md mx-auto">
                 Learn how the platform works, test strategies, and build confidence before using real funds.
@@ -308,7 +308,7 @@ export default function DashboardPage() {
                 🔑 Crypto Exchange API Setup Required
               </h2>
               <p className="text-gray-300 text-lg max-w-md mx-auto">
-                To start trading with Tezcai, you need to connect your Crypto account first.
+                To start trading with Namaio, you need to connect your Crypto account first.
               </p>
             </div>
 
@@ -371,7 +371,7 @@ export default function DashboardPage() {
                   Confirm  Try  Demo Mode
                 </h2>
                 <p className="text-gray-300 ">
-                  Experience trading with Tezcai risk-free. <br />
+                  Experience trading with Namaio risk-free. <br />
                   We’ve set up demo keys for you. Later, you can add your own real keys. <br />
                   Are you sure you want to continue?
                 </p>

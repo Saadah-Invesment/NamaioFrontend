@@ -25,8 +25,8 @@ export default function CategoryPage() {
       try {
         const res = await axios.get(
           category === 'all'
-            ? 'https://api.tezcai.com/api/blog/'
-            : `https://api.tezcai.com/api/blog/categories/${category}`
+            ? 'https://api.namaio.com/api/blog/'
+            : `https://api.namaio.com/api/blog/categories/${category}`
         );
 
         // Normalize API response to array

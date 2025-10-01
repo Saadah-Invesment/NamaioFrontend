@@ -211,7 +211,7 @@ export default function DashboardLayout({ children }: Props) {
           <Link href="/" className='cursor-pointer'>
             <div className="flex items-center">
               <Image
-                src="/images/tezcai-logo-bg.png"
+                src="/images/namaio-logo.png"
                 alt="Logo"
                 width={100}
                 height={100}
@@ -219,7 +219,7 @@ export default function DashboardLayout({ children }: Props) {
                 loading='lazy'
               />
               <Image
-                src="/images/tezcai-bull-logo.png"
+                src="/images/namaio-symbol.png"
                 alt="Logo"
                 width={40}
                 height={40}
@@ -351,7 +351,7 @@ export default function DashboardLayout({ children }: Props) {
             <FiMenu className="w-6 h-6" />
           </button>
           <Image
-            src="/images/tezcai-logo.png"
+            src="/images/namaio-logo.png"
             alt="Logo"
             width={100}
             height={100}

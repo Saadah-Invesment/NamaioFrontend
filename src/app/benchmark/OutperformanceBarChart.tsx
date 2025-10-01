@@ -74,10 +74,10 @@ export default function OutperformanceBarChart({ filteredData }: Props) {
     return (
         <div className="bg-[#0e0e25] p-4 rounded-lg mx-auto mt-6 max-w-6xl">
             <h3 className="text-lg font-semibold text-white mb-3">
-               Daily Tezcai Outperformance VS Bennchmark
+               Daily Namaio Outperformance VS Bennchmark
             </h3>
             <p className="text-base text-gray-400 mb-4">
-               This chart shows how much Tezcai outperformed (or underperformed) the benchmark each day.
+               This chart shows how much Namaio outperformed (or underperformed) the benchmark each day.
             </p>
             <div className="h-[450px] w-full">
                 <Bar data={chartData} options={options} />

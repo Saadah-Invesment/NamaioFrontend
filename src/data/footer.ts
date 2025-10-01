@@ -7,7 +7,7 @@ export const footerDetails: {
   telephone: string;
   socials: ISocials;
 } = {
-  subheading: "Tezcai is a product of Saadah Investment LLC — empowering investors through automated, AI-driven trading technology.",
+  subheading: "Namaio is a product of Saadah Investment LLC — empowering investors through automated, AI-driven trading technology.",
   quickLinks: [
     {
       text: "Features",

@@ -524,7 +524,7 @@ const ProfilePage: React.FC = () => {
                   <div className="bg-slate-800/50 rounded-lg p-3 border border-white/10">
                     <div className="flex items-center justify-between gap-3">
                       <code className="text-blue-400 font-mono text-sm font-bold flex-1">
-                        {"https://tezcai.com/register/?ref="}{user.affiliate_profile.code}
+                        {"https://namaio.com/register/?ref="}{user.affiliate_profile.code}
                       </code>
                       <button
                         onClick={() => copyToClipboard(user.affiliate_profile!.code)}
@@ -598,7 +598,7 @@ const ProfilePage: React.FC = () => {
               </div>
               <div className="bg-gray-700 p-4 rounded-lg mb-6">
                 <p className="text-sm text-gray-300 ">
-                  Earn commission when new user joins Tezcai and trades using your refferel.{" "}
+                  Earn commission when new user joins Namaio and trades using your refferel.{" "}
                   <a href="/affiliate" className="text-blue-400 hover:underline">
                     Learn More
                   </a>

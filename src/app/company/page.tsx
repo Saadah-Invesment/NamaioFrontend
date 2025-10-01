@@ -4,7 +4,7 @@ import Script from "next/script";
 // move your UI into a client component
 
 export const metadata: Metadata = {
-  title: "About Tezcai | Our Company, Vision & Mission",
+  title: "About Namaio | Our Company, Vision & Mission",
   description:
     "Discover Tezcai’s story, vision, and mission. Learn how our automated crypto trading platform empowers traders with smart, data-driven strategies.",
   alternates: {
@@ -17,11 +17,11 @@ const companySchema = [
   {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    url: "https://tezcai.com/company",
-    name: "About Tezcai",
-    description: "Learn about Tezcai — our vision, mission, values, and what drives us.",
+    url: "https://namaio.com/company",
+    name: "About Namaio",
+    description: "Learn about Namaio — our vision, mission, values, and what drives us.",
     mainEntity: {
-      "@id": "https://tezcai.com#organization"
+      "@id": "https://namaio.com#organization"
     }
   },
   {
@@ -30,7 +30,7 @@ const companySchema = [
     mainEntity: [
       {
         "@type": "Question",
-        name: "What is Tezcai's vision?",
+        name: "What is Namaio's vision?",
         acceptedAnswer: {
           "@type": "Answer",
           text: "To become the most trusted name in AI-driven trading technology, empowering individuals and institutions worldwide with intelligent tools that deliver results consistently, securely, and transparently."
@@ -38,7 +38,7 @@ const companySchema = [
       },
       {
         "@type": "Question",
-        name: "What is Tezcai's mission?",
+        name: "What is Namaio's mission?",
         acceptedAnswer: {
           "@type": "Answer",
           text: "To simplify trading with intuitive Smart Software solutions, empower clients with automation that saves time, minimizes risk, and maximizes opportunity; set new benchmarks of trust and transparency; and continuously innovate to keep users ahead of the market."
@@ -46,7 +46,7 @@ const companySchema = [
       },
       {
         "@type": "Question",
-        name: "What are Tezcai's core values?",
+        name: "What are Namaio's core values?",
         acceptedAnswer: {
           "@type": "Answer",
           text: "Integrity, Excellence, Innovation, Trust, Accessibility, and Growth."

@@ -3,13 +3,13 @@ import React from 'react';
 
 const PrivacyPolicy: React.FC = () => {
   return (
-    <div className="privacy-policy-container text-white p-6 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">Tezcai Privacy Policy</h1>
-      <p className="text-sm text-gray-500 mb-6">Effective Date: 14/08/2025</p>
+    <div className="privacy-policy-container text-primary p-6 max-w-4xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4">Namaio Privacy Policy</h1>
+      {/* <p className="text-sm text-gray-500 mb-6">Effective Date: 14/08/2025</p> */}
 
       <div className="mb-6">
         <p className="mb-4">
-          Tezcai ("we," "our," or "us") is committed to protecting your privacy and safeguarding your personal information. This Privacy Policy explains how we collect, use, store, and protect your data when you access or use our services, including our automated crypto trading software, website, and related services (collectively, the "Services").
+          Namaio ("we," "our," or "us") is committed to protecting your privacy and safeguarding your personal information. This Privacy Policy explains how we collect, use, store, and protect your data when you access or use our services, including our automated crypto trading software, website, and related services (collectively, the "Services").
         </p>
         <p className="mb-4">
           By using our Services, you agree to the practices described in this Privacy Policy. If you do not agree, please discontinue use of our Services.
@@ -102,7 +102,7 @@ const PrivacyPolicy: React.FC = () => {
             <li>Withdraw consent at any time (this may affect service availability).</li>
             <li>Request a copy of the personal data we hold about you.</li>
           </ul>
-          <p className="mt-2">To exercise these rights, contact us at: <a href="mailto:info@tezcai.com" className="text-blue-400 hover:underline">info@tezcai.com</a></p>
+          <p className="mt-2">To exercise these rights, contact us at: <a href="mailto:info@namaio.com" className="text-blue-400 hover:underline">info@namaio.com</a></p>
         </section>
 
         <section>
@@ -123,9 +123,9 @@ const PrivacyPolicy: React.FC = () => {
         <section>
           <h2 className="text-xl font-semibold mb-2">11. Contact Us</h2>
           <p className="mb-2">If you have questions or concerns about this Privacy Policy or our data practices, please contact us:</p>
-          <p>Tezcai<br />
-            Email: <a href="mailto:info@tezcai.com" className="text-blue-400 hover:underline">info@tezcai.com</a><br />
-            Website: <a href="https://www.tezcai.com" className="text-blue-400 hover:underline">www.tezcai.com</a></p>
+          <p>Namaio<br />
+            Email: <a href="mailto:info@namaio.com" className="text-blue-400 hover:underline">info@namaio.com</a><br />
+            Website: <a href="https://www.namaio.com" className="text-blue-400 hover:underline">www.namaio.com</a></p>
         </section>
 
         <div className="flex justify-center">

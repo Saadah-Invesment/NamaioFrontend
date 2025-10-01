@@ -34,7 +34,7 @@ export default function BenchmarkLineChart({ filteredData }: Props) {
         labels: sortedData.map((item) => item.day),
         datasets: [
             {
-                label: "Total Tezcai Return",
+                label: "Total Namaio Return",
                 data: sortedData.map((item) => item.bot_return),
                 borderColor: "#7efefd",
                 backgroundColor: "rgba(59, 130, 246, 0.2)",
@@ -75,7 +75,7 @@ export default function BenchmarkLineChart({ filteredData }: Props) {
         <div className="bg-[#0e0e25] p-4 rounded-lg max-w-6xl mx-auto mt-6 ">
             <h3 className="text-lg font-semibold text-white ">Cumulative Performance Comparison</h3>
             <p className="text-base text-gray-400 mb-4">
-               This chart shows how Tezcai’s returns have steadily separated from the market.
+               This chart shows how Namaio’s returns have steadily separated from the market.
             </p>
             <div className="h-[450px] w-full">
                 <Line

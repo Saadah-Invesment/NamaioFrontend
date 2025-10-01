@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://tezcai.com";
+const BASE_URL = "https://namaio.com";
 
 // Static pages with SEO hints
 const staticPages: { path: string; priority: number; changefreq: string }[] = [

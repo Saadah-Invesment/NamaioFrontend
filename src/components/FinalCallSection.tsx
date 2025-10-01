@@ -7,7 +7,7 @@ import GradientButton from './UI/GradientLinkButton';
 
 const FinalCallSection = () => {
     return (
-        <div className="bg-gray-900 text-white">
+        <div className="bg-primary text-white">
             <div className="max-w-7xl mx-auto px-6 py-20 w-full">
                 {/* Section Title */}
                 <div className="text-center mb-16">
@@ -25,22 +25,16 @@ const FinalCallSection = () => {
                         Trade Smarter. Earn More. Start Today.
                     </h2>
                     <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                        Your money stays in your exchange wallet. Your trades are powered by smart trading software.
-                        Join traders worldwide who trust Tezcai to deliver consistent results.
+                       Namaio was built by a team of fintech and trading experts with experience in finance, automation, and AI.
                     </p>
                 </div>
 
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <GradientButton href='/login'>
+                    <GradientButton href='/login' variant='secondary'>
                         Start For Free ⚡
                     </GradientButton>
-                    <a
-                        href="/help-center"
-                        className="px-8 py-4 font-semibold text-white border-2 border-gray-600 hover:border-blue-400 rounded-xl flex items-center justify-center gap-2 transition-colors"
-                    >
-                        Book a Demo <FiArrowRight className="w-4 h-4" />
-                    </a>
+
                 </div>
             </div>
         </div>

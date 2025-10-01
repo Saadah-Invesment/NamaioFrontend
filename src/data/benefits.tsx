@@ -16,7 +16,7 @@ export const benefits: IBenefit[] = [
   {
     title: "Smart Auto Trading",
     description:
-      "Let Tezcai take control — our smart software system buys and sells automatically, optimizing every trade with precision.",
+      "Let Namaio take control — our smart software system buys and sells automatically, optimizing every trade with precision.",
     bullets: [
       {
         title: "AI-Powered Execution",
@@ -33,7 +33,7 @@ export const benefits: IBenefit[] = [
       {
         title: "Fully Automated",
         description:
-          "Set it once — Tezcai handles the rest with zero manual effort.",
+          "Set it once — Namaio handles the rest with zero manual effort.",
         icon: <FiZap size={26} />,
       },
     ],
@@ -68,7 +68,7 @@ export const benefits: IBenefit[] = [
   {
     title: "Bank-Grade Security",
     description:
-      "We take your security seriously. Tezcai is built with encryption, secure APIs, and real-time fraud protection.",
+      "We take your security seriously. Namaio is built with encryption, secure APIs, and real-time fraud protection.",
     bullets: [
       {
         title: "End-to-End Encryption",

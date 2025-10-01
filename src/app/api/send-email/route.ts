@@ -73,8 +73,8 @@
 
 //   // Prepare email content
 //   const mailOptions = {
-//     from: `"Tezcai Contact Form" <${process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER}>`,
-//     to: 'info@tezcai.com',
+//     from: `"Namaio Contact Form" <${process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER}>`,
+//     to: 'info@namaio.com',
 //     replyTo: payload.email || undefined,
 //     subject: 'New Contact Form Submission',
 //     text: [
@@ -197,8 +197,8 @@ export async function POST(request: Request) {
 
     // Main email to your team
     const adminMailOptions = {
-        from: `"Tezcai Contact Form" <${process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER}>`,
-        to: 'info@tezcai.com',
+        from: `"Namaio Contact Form" <${process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER}>`,
+        to: 'info@namaio.com',
         replyTo: payload.email || undefined,
         subject: 'New Contact Form Submission',
         text: [
@@ -227,13 +227,13 @@ export async function POST(request: Request) {
         // Only send confirmation if user provided email
         if (payload.email) {
             const confirmationMailOptions = {
-                from: `"Tezcai Support" <${process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER}>`,
+                from: `"Namaio Support" <${process.env.SMTP_FROM_EMAIL || process.env.SMTP_USER}>`,
                 to: payload.email,
                 subject: 'We received your message!',
-                text: `Thank you for contacting Tezcai!\n\nWe've received your message and our team will get back to you soon.\n\nHere's what you sent us:\n\n${payload.message}\n\nBest regards,\nThe Tezcai Team`,
+                text: `Thank you for contacting Namaio!\n\nWe've received your message and our team will get back to you soon.\n\nHere's what you sent us:\n\n${payload.message}\n\nBest regards,\nThe Namaio Team`,
                 html: `
           <div style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #2563eb;">Thank you for contacting Tezcai!</h2>
+            <h2 style="color: #2563eb;">Thank you for contacting Namaio!</h2>
             <p>We've received your message and our team will get back to you soon.</p>
             
             <div style="margin: 2rem 0; padding: 1rem; border-left: 4px solid #2563eb; background: #f3f4f6;">
@@ -241,9 +241,9 @@ export async function POST(request: Request) {
               <p style="white-space: pre-wrap;">${payload.message}</p>
             </div>
             
-            <p>https://tezcai.com</p>
+            <p>https://namaio.com</p>
             
-            <p style="margin-top: 2rem;">Best regards,<br>The Tezcai Team</p>
+            <p style="margin-top: 2rem;">Best regards,<br>The Namaio Team</p>
             
             <div style="margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; font-size: 0.8rem; color: #6b7280;">
               <p>This is an automated message. Please do not reply directly to this email.</p>

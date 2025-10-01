@@ -8,7 +8,7 @@ import { FcFlashOn } from 'react-icons/fc';
 import { FiEye, FiEyeOff, FiUser, FiLock, FiArrowRight, FiShield, FiZap, FiTrendingUp, FiCheck } from 'react-icons/fi';
 import Footer from '@/components/Footer';
 import { loginapi } from '@/api/auth';
-import TezcaiLogo from '@/components/Logo/TezcaiLogo';
+
 import { motion } from 'framer-motion';
 import Header from "@/components/Header";
 const LoginPage: React.FC = () => {
@@ -133,21 +133,19 @@ const LoginPage: React.FC = () => {
           >
             <div className="space-y-8">
               <div>
-                {/* <div className="mb-6 ">
-                  <TezcaiLogo />
-                </div> */}
+
                 <h1 className="text-4xl xl:text-5xl font-bold mb-6">
-                  <span className=" ">
+                  <span className="text-secondary ">
                     Welcome Back to
                   </span>
                   <br />
-                  <span className="bg-secondary bg-clip-text text-transparent">
-                    Tezcai
+                  <span className="bg-primary bg-clip-text text-transparent">
+                    Namaio
                   </span>
                 </h1>
 
-                <p className="text-xl text-gray-300 leading-relaxed">
-                  No overtrading. No emotions. Just disciplined, data-driven performance ~1 to 2 % profit per day.
+                <p className="text-xl text-primary leading-relaxed">
+                  Trades automatically on your behalf smarter, faster, and with discipline.
                 </p>
               </div>
 
@@ -161,12 +159,12 @@ const LoginPage: React.FC = () => {
                     transition={{ duration: 0.6, delay: 0.2 + index * 0.1 }}
                     className="flex items-center gap-4"
                   >
-                    <div className="w-12 h-12 bg-blue-900/30 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <feature.icon className="w-6 h-6 text-blue-400" />
+                    <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center flex-shrink-0">
+                      <feature.icon className="w-6 h-6 text-secondary" />
                     </div>
                     <div>
-                      <h3 className="font-semibold text-white">{feature.text}</h3>
-                      <p className="text-gray-400 text-sm">Always protected and reliable</p>
+                      <h3 className="font-semibold text-primary">{feature.text}</h3>
+                      <p className="text-gray-600 text-sm">Always protected and reliable</p>
                     </div>
                   </motion.div>
                 ))}
@@ -204,7 +202,7 @@ const LoginPage: React.FC = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="w-full max-w-md mx-auto lg:mx-0"
           >
-            <div className="bg-gray-800/50 backdrop-blur-xl rounded-2xl shadow-2xl p-8 border border-gray-700/50">
+            <div className="bg-background backdrop-blur-xl rounded-2xl shadow-2xl p-8 text-primary border border-cyan-700/50">
               {/* Logo and Header */}
               <div className="text-center mb-8">
 
@@ -212,23 +210,23 @@ const LoginPage: React.FC = () => {
                 <h2 className="text-3xl font-bold  mb-2">
                   Sign In
                 </h2>
-                <p className="text-gray-300">Access your trading dashboard</p>
+                <p className="text-primary">Access your trading dashboard</p>
               </div>
 
               <form className="space-y-6" onSubmit={handleLogin}>
                 {/* Username */}
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-300">Username/Email</label>
+                  <label className="block text-sm font-medium mb-2 text-secondary">Username/Email</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <FiUser className="h-5 w-5 text-gray-400" />
+                      <FiUser className="h-5 w-5 text-primary" />
                     </div>
                     <input
                       type="text"
                       value={username}
                       onChange={e => setUsername(e.target.value)}
                       placeholder="Enter your username / email"
-                      className={`w-full pl-12 pr-4 py-3 bg-gray-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${usernameValid === null ? 'border-gray-600 focus:ring-blue-500' :
+                      className={`w-full pl-12 pr-4 py-3  border rounded-lg text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${usernameValid === null ? 'border-gray-600 focus:ring-blue-500' :
                         usernameValid ? 'border-green-500 focus:ring-green-500' : 'border-red-500 focus:ring-red-500'
                         }`}
                     />
@@ -247,17 +245,17 @@ const LoginPage: React.FC = () => {
 
                 {/* Password */}
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-300">Password</label>
+                  <label className="block text-sm font-medium mb-2 text-secondary">Password</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <FiLock className="h-5 w-5 text-gray-400" />
+                      <FiLock className="h-5 w-5 text-primary" />
                     </div>
                     <input
                       type={showPassword ? 'text' : 'password'}
                       value={password}
                       onChange={e => setPassword(e.target.value)}
                       placeholder="Enter your password"
-                      className={`w-full pl-12 pr-12 py-3 bg-gray-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${passwordValid === null ? 'border-gray-600 focus:ring-blue-500' :
+                      className={`w-full pl-12 pr-12 py-3  border rounded-lg text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:border-transparent transition ${passwordValid === null ? 'border-gray-600 focus:ring-blue-500' :
                         passwordValid ? 'border-green-500 focus:ring-green-500' : 'border-red-500 focus:ring-red-500'
                         }`}
                     />
@@ -285,11 +283,11 @@ const LoginPage: React.FC = () => {
                       onChange={(e) => setRememberMe(e.target.checked)}
                       className="w-4 h-4 bg-gray-700 border border-gray-600 rounded focus:ring-blue-500 focus:ring-2 text-blue-600"
                     />
-                    <span className="text-sm text-gray-300">Remember me</span>
+                    <span className="text-sm text-secondary">Remember me</span>
                   </label> */}
                   <Link
                     href="/reset-password"
-                    className="text-sm text-blue-400 hover:text-blue-300 transition-colors"
+                    className="text-sm text-primary hover:text-blue-300 transition-colors"
                   >
                     Forgot password?
                   </Link>
@@ -301,7 +299,7 @@ const LoginPage: React.FC = () => {
                   disabled={loading || !isFormValid}
                   className={`w-full font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 ${loading || !isFormValid
                     ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
-                    : 'bg-gradient-to-r from-blue-400 to-green-800 text-white shadow-lg hover:shadow-blue-500/25 hover:scale-105'
+                    : 'bg-gradient-to-r from-secondary to-primary text-white shadow-lg hover:shadow-blue-500/25 hover:scale-105'
                     }`}
                 >
                   {loading ? (
@@ -327,11 +325,11 @@ const LoginPage: React.FC = () => {
 
                 {/* Sign up link */}
                 <div className="text-center">
-                  <p className="text-gray-400">
+                  <p className="text-primary">
                     Don't have an account?{' '}
                     <Link
                       href="/register"
-                      className="text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                      className="text-secondary hover:text-blue-400 font-medium transition-colors"
                     >
                       Create Account
                     </Link>
@@ -341,7 +339,7 @@ const LoginPage: React.FC = () => {
 
               {/* Security note */}
               <div className="mt-8 pt-6 border-t border-gray-700/50">
-                <div className="flex items-center justify-center gap-2 text-xs text-gray-400">
+                <div className="flex items-center justify-center gap-2 text-xs text-gray-800">
                   <FiShield className="w-3 h-3 text-green-400" />
                   <span>Your connection is secure and encrypted</span>
                 </div>
@@ -352,7 +350,7 @@ const LoginPage: React.FC = () => {
 
 
       </section>
-
+    <Footer />
 
     </>
   );

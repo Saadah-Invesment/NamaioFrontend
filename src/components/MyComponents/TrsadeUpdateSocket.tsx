@@ -25,7 +25,7 @@ export default function TradeUpdateSocket() {
     const token = localStorage.getItem("tezcai_token");
     if (!token) return;
 
-    const ws = new WebSocket(`wss://api.tezcai.com/ws/trades/?token=${token}`);
+    const ws = new WebSocket(`wss://api.namaio.com/ws/trades/?token=${token}`);
 
     ws.onopen = () => console.log("✅ WebSocket connected");
 

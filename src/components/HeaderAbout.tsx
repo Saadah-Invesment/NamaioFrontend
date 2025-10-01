@@ -2,8 +2,9 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { FiMenu, FiX, FiChevronDown } from "react-icons/fi";
-import TezcaiLogo from './Logo/TezcaiLogo';
+
 import GradientButton from './UI/GradientLinkButton';
+import NamaioLogo from './Logo/NamaioLogo';
 
 // Types
 interface NavLinkProps {
@@ -152,7 +153,7 @@ export default function HeaderAbout(): JSX.Element {
                     <div className="flex justify-between items-center py-3">
                         {/* Logo */}
                         <div className="flex justify-center items-center">
-                            <TezcaiLogo />
+                            <NamaioLogo />
                             <div className='ml-10 mt-3'><NavLink href="/">Home</NavLink></div>
                         </div>
                         {/* Desktop Actions */}

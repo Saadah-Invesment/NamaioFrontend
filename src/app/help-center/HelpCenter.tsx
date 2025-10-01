@@ -216,8 +216,8 @@ export default function HelpCenter() {
                 <div className="space-y-4">
                     <div className="flex items-center gap-3">
                         <FiMail className="text-blue-400" />
-                        <a href="mailto:info@tezcai.com" className="hover:text-blue-400 transition-colors">
-                            info@tezcai.com
+                        <a href="mailto:info@namaio.com" className="hover:text-blue-400 transition-colors">
+                            info@namaio.com
                         </a>
                     </div>
                     

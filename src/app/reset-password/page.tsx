@@ -6,8 +6,9 @@ import Link from 'next/link';
 import { toast } from 'react-hot-toast';
 import { FiMail, FiLock, FiArrowRight, FiCheck, FiEye, FiEyeOff, FiX } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import TezcaiLogo from '@/components/Logo/TezcaiLogo';
+
 import { passwordresetapi, passwordresetconfirmapi } from '@/api/auth';
+import NamaioLogo from '@/components/Logo/NamaioLogo';
 
 const ResetPasswordPage: React.FC = () => {
     const router = useRouter();
@@ -159,7 +160,7 @@ const ResetPasswordPage: React.FC = () => {
                     {/* Logo and Header */}
                     <div className="text-center mb-8">
                         <div className="mb-6 flex justify-center">
-                            <TezcaiLogo />
+                            <NamaioLogo />
                         </div>
                         <h2 className="text-3xl font-bold mb-2">
                             {isTokenValid ? "Reset Your Password" : "Forgot Password"}

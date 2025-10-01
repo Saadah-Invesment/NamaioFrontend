@@ -5,7 +5,7 @@ export const testimonials: ITestimonial[] = [
   {
     name: "John Smith",
     role: "Crypto Trader",
-    message: `${siteDetails.siteName} made automated trading effortless. I used to spend hours watching charts — now Tezcai does it all, and better. I’ve seen consistent profits with zero stress.`,
+    message: `${siteDetails.siteName} made automated trading effortless. I used to spend hours watching charts — now Namaio does it all, and better. I’ve seen consistent profits with zero stress.`,
     // avatar: "/images/testimonial-1.webp",
   },
   {

@@ -66,7 +66,7 @@ export default function BenchmarkPage() {
         try {
             setLoading(true);
             const res = await axios.get(
-                `https://api.tezcai.com/api/comparison/?start=${fromDate}&end=${toDate}`
+                `https://api.namaio.com/api/comparison/?start=${fromDate}&end=${toDate}`
             );
             let results = res.data.results || [];
             results = results.sort((a: ComparisonResult, b: ComparisonResult) =>
@@ -186,15 +186,15 @@ export default function BenchmarkPage() {
         <section className="min-h-screen  pb-5">
             <div className="max-w-7xl mx-auto  rounded-2xl p-6 mt-5">
                 <h2 className="text-2xl font-bold text-white ">
-                    Tezcai 30 Index
+                    Namaio 30 Index
                 </h2>
                 <p className="text-lg font-medium text-gray-400 mb-6">
-                    While the market struggles, Tezcai delivers steady gains
+                    While the market struggles, Namaio delivers steady gains
                 </p>
                 {/* 🔹 Totals Summary */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-3">
                     <div className="bg-[#0e0e25] p-4 rounded-lg text-center">
-                        <h4 className="text-gray-400 text-sm">Total Tezcai Return</h4>
+                        <h4 className="text-gray-400 text-sm">Total Namaio Return</h4>
                         <p className={`text-xl font-bold ${totals.bot >= 0 ? "text-secondary" : "text-red-400"}`}>
                             {totals.bot.toFixed(2)}%
                         </p>
@@ -215,11 +215,11 @@ export default function BenchmarkPage() {
 
                 {(totals.bot !== null || totals.market !== null) && (
                     <h5 className="my-5 text-center text-gray-300 text-base">
-                        Tezcai made{" "}
+                        Namaio made{" "}
                         <span className="text-secondary font-semibold">
                             {safeToFixed(totals.bot)}%
                         </span>
-                        , while the market (Tezcai 30 Index) made{" "}
+                        , while the market (Namaio 30 Index) made{" "}
                         <span className="text-blue-400 font-semibold">
                             {safeToFixed(totals.market)}%
                         </span>
@@ -255,8 +255,8 @@ export default function BenchmarkPage() {
                         Daily Performance vs Market
                     </h2>
                     <p className="text-base text-gray-400 mb-4">
-                        Track Tezcai’s daily returns against the TEZCAI 30 Index.
-                        Each row shows the Tezcai return, the market’s return, and the outperformance in percentage points, making it easy to see where Tezcai gained an edge or limited losses.
+                        Track Namaio’s daily returns against the TEZCAI 30 Index.
+                        Each row shows the Namaio return, the market’s return, and the outperformance in percentage points, making it easy to see where Namaio gained an edge or limited losses.
                     </p>
                     <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
 
@@ -387,7 +387,7 @@ export default function BenchmarkPage() {
                                         className="p-4 cursor-pointer hover:bg-gray-600 transition-colors"
                                         onClick={() => handleSort("bot_return")}
                                     >
-                                        Tezcai Return {renderSortIcon("bot_return")}
+                                        Namaio Return {renderSortIcon("bot_return")}
                                     </th>
                                     <th
                                         className="p-4 cursor-pointer hover:bg-gray-600 transition-colors"
@@ -532,7 +532,7 @@ export default function BenchmarkPage() {
                     </button>
 
                     <h3 className="text-lg font-semibold text-white mb-3">
-                        ⓘ   Why Tezcai Performance May Differ from the Market
+                        ⓘ   Why Namaio Performance May Differ from the Market
                     </h3>
                     <ul className="list-disc list-inside space-y-2">
                         <li>

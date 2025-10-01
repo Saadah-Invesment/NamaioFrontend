@@ -5,7 +5,7 @@ export const faqs: IFAQ[] = [
   {
     question: `Is ${siteDetails.siteName} secure?`,
     answer:
-      "Absolutely. We use bank-level encryption and secure APIs to protect your data. Tezcai never stores your exchange credentials and supports two-factor authentication for extra protection.",
+      "Absolutely. We use bank-level encryption and secure APIs to protect your data. Namaio never stores your exchange credentials and supports two-factor authentication for extra protection.",
   },
   {
     question: `Can I use ${siteDetails.siteName} on multiple devices?`,
@@ -13,14 +13,14 @@ export const faqs: IFAQ[] = [
       `${siteDetails.siteName} syncs seamlessly across desktop, tablet, and mobile devices, so you can manage your trading from anywhere in real time.`,
   },
   {
-    question: 'Do I need trading experience to use Tezcai?',
+    question: 'Do I need trading experience to use Namaio?',
     answer:
-      "Not at all! Tezcai is built for everyone — whether you're a beginner or a pro. Just set your preferences, and our AI will handle the rest.",
+      "Not at all! Namaio is built for everyone — whether you're a beginner or a pro. Just set your preferences, and our AI will handle the rest.",
   },
   {
-    question: 'How does Tezcai choose when to trade?',
+    question: 'How does Namaio choose when to trade?',
     answer:
-      "Tezcai continuously scans market conditions and identifies top volatility signals. It then executes trades based on your configured strategy and risk profile.",
+      "Namaio continuously scans market conditions and identifies top volatility signals. It then executes trades based on your configured strategy and risk profile.",
   },
   {
     question: 'What if I need help using the platform?',

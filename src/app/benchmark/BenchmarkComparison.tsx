@@ -17,7 +17,7 @@ export default function BenchmarkComparison() {
         setLoading(true);
         setError(null);
 
-        const res = await axios.get("https://api.tezcai.com/api/benchmark-index/");
+        const res = await axios.get("https://api.namaio.com/api/benchmark-index/");
         if (res.data) {
           const yesterday = new Date();
           yesterday.setDate(yesterday.getDate() - 1);

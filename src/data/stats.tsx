@@ -17,6 +17,6 @@ export const stats: IStats[] = [
   {
     title: "120+",
     icon: <PiGlobeFill size={34} className="text-green-600" />,
-    description: "Countries served — Tezcai supports traders across the globe in real time.",
+    description: "Countries served — Namaio supports traders across the globe in real time.",
   },
 ];

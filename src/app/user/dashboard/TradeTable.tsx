@@ -613,7 +613,7 @@ const TradeTable: React.FC<Props> = ({ trades, loading = false, error, testmode,
           </div>
           <h3 className="text-xl font-semibold text-white mb-2">No Trades Found</h3>
           <p className="text-gray-400 text-center mb-6 max-w-md">
-            You haven't made any trades yet. Start trading with Tezcai to see your trade history here.
+            You haven't made any trades yet. Start trading with Namaio to see your trade history here.
           </p>
           <button
             className="px-6 py-3 bg-yellow-500/20 hover:bg-yellow-500/30 text-yellow-300 rounded-lg border border-yellow-500/30 transition-colors"
@@ -688,7 +688,7 @@ const TradeTable: React.FC<Props> = ({ trades, loading = false, error, testmode,
       <div className="mb-4 sm:mb-6">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-3 sm:mb-4">
           <h3 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-0">
-            My Trade History using <span className="text-secondary">Tezcai</span>
+            My Trade History using <span className="text-secondary">Namaio</span>
           </h3>
           <div className="flex items-center space-x-2 text-sm text-gray-400">
             <span>{filteredData.length} of {trades.length} trades</span>
@@ -713,7 +713,7 @@ const TradeTable: React.FC<Props> = ({ trades, loading = false, error, testmode,
             <div className={`text-base sm:text-lg font-bold ${summaryStats.totalPnl >= 0 ? 'text-green-400' : 'text-red-400'}`}>
               {summaryStats.totalPnl.toFixed(2)} %
             </div>
-            <div className="text-xs text-gray-400">Total Net PnL Using Tezcai</div>
+            <div className="text-xs text-gray-400">Total Net PnL Using Namaio</div>
           </div>
         </div>
       </div>

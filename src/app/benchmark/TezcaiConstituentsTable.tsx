@@ -31,7 +31,7 @@ export default function TezcaiConstituentsTable() {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "https://api.tezcai.com/api/benchmarks/constituents/"
+          "https://api.namaio.com/api/benchmarks/constituents/"
         );
         const json = res.data;
         setData(json.constituents || []);
@@ -46,7 +46,7 @@ export default function TezcaiConstituentsTable() {
           })
         );
       } catch (err) {
-        console.error("Error fetching Tezcai 30 data:", err);
+        console.error("Error fetching Namaio 30 data:", err);
       }
     };
     fetchData();
@@ -55,7 +55,7 @@ export default function TezcaiConstituentsTable() {
   return (
     <div className="bg-[#0e0e25]   rounded-lg shadow-md max-w-6xl mx-auto mt-6 p-6 overflow-x-auto">
       <h3 className="text-xl font-semibold text-white mb-1">
-        Tezcai 30 Index Constituents
+        Namaio 30 Index Constituents
       </h3>
       {lastUpdate && (
         <p className="text-sm text-gray-400 mb-4">Last Update: {lastUpdate}</p>

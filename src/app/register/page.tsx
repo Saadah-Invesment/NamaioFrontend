@@ -228,16 +228,16 @@ const SignupPage: React.FC = () => {
   return (
     <>
       <Header />
-      <section className="relative min-h-screen flex items-center justify-center py-10 px-4 text-white">
+      <section className="relative min-h-screen flex items-center justify-center py-10 px-4 text-primary">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full max-w-5xl bg-gray-800/50 backdrop-blur-xl rounded-2xl shadow-2xl p-6 md:p-10 border border-gray-700/50"
+          className="w-full max-w-5xl bg-background backdrop-blur-xl rounded-2xl shadow-2xl p-6 md:p-10 border border-cyan-700/50"
         >
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-2">Join Tezcai</h2>
-            <p className="text-gray-300">Start your automated trading journey</p>
+            <h2 className="text-3xl md:text-4xl font-bold mb-2">Join Namaio</h2>
+            {/* <p className="text-secondary">Start your automated trading journey</p> */}
           </div>
 
           <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
@@ -247,17 +247,17 @@ const SignupPage: React.FC = () => {
               <div className="space-y-6">
                 {/* First Name */}
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-300">First Name</label>
+                  <label className="block text-sm font-medium mb-2 text-secondary">First Name</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <FiUser className="h-5 w-5 text-gray-400" />
+                      <FiUser className="h-5 w-5 text-primary" />
                     </div>
                     <input
                       type="text"
                       value={firstName}
                       onChange={(e) => setFirstName(e.target.value)}
                       placeholder="Enter your first name"
-                      className={`w-full pl-12 pr-12 py-3 bg-gray-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition ${firstNameValid === null ? 'border-gray-600 focus:ring-blue-500' : firstNameValid ? 'border-green-500 focus:ring-green-500' : 'border-red-500 focus:ring-red-500'
+                      className={`w-full pl-12 pr-12 py-3  border rounded-lg text-primary placeholder-gray-400 focus:outline-none focus:ring-2 transition ${firstNameValid === null ? 'border-gray-600 focus:ring-blue-500' : firstNameValid ? 'border-green-500 focus:ring-green-500' : 'border-red-500 focus:ring-red-500'
                         }`}
                     />
                     <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
@@ -269,17 +269,17 @@ const SignupPage: React.FC = () => {
 
                 {/* Username */}
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-300">Username</label>
+                  <label className="block text-sm font-medium mb-2 text-secondary">Username</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <FiUser className="h-5 w-5 text-gray-400" />
+                      <FiUser className="h-5 w-5 text-primary" />
                     </div>
                     <input
                       type="text"
                       value={username}
                       onChange={(e) => setUsername(e.target.value)}
                       placeholder="Choose a username"
-                      className={`w-full pl-12 pr-12 py-3 bg-gray-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition ${usernameValid === null ? 'border-gray-600 focus:ring-blue-500' : usernameValid ? 'border-green-500 focus:ring-green-500' : 'border-red-500 focus:ring-red-500'
+                      className={`w-full pl-12 pr-12 py-3  border rounded-lg text-primary placeholder-gray-400 focus:outline-none focus:ring-2 transition ${usernameValid === null ? 'border-gray-600 focus:ring-blue-500' : usernameValid ? 'border-green-500 focus:ring-green-500' : 'border-red-500 focus:ring-red-500'
                         }`}
                     />
                     <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
@@ -291,10 +291,10 @@ const SignupPage: React.FC = () => {
 
                 {/* Date of Birth */}
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-300">Date of Birth</label>
+                  <label className="block text-sm font-medium mb-2 text-secondary">Date of Birth</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <FiCalendar className="h-5 w-5 text-gray-400" />
+                      <FiCalendar className="h-5 w-5 text-primary" />
                     </div>
                     <input
                       type="date"
@@ -302,7 +302,7 @@ const SignupPage: React.FC = () => {
                       onChange={(e) => setDateOfBirth(e.target.value)}
                       min={minDate}
                       max={maxDate}
-                      className={`w-full pl-12 pr-12 py-3 bg-gray-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition ${dateOfBirthValid === null ? 'border-gray-600 focus:ring-blue-500' : dateOfBirthValid ? 'border-green-500 focus:ring-green-500' : 'border-red-500 focus:ring-red-500'
+                      className={`w-full pl-12 pr-12 py-3  border rounded-lg text-primary placeholder-gray-400 focus:outline-none focus:ring-2 transition ${dateOfBirthValid === null ? 'border-gray-600 focus:ring-blue-500' : dateOfBirthValid ? 'border-green-500 focus:ring-green-500' : 'border-red-500 focus:ring-red-500'
                         }`}
                     />
                     <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
@@ -314,27 +314,27 @@ const SignupPage: React.FC = () => {
 
                 {/* Referral */}
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-300">Referral Code (optional)</label>
+                  <label className="block text-sm font-medium mb-2 text-secondary">Referral Code (optional)</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <FiStar className="h-5 w-5 text-gray-400" />
+                      <FiStar className="h-5 w-5 text-primary" />
                     </div>
                     <input
                       type="text"
                       value={referralCode}
                       onChange={(e) => setReferralCode(e.target.value)}
                       placeholder="Enter referral code"
-                      className="w-full pl-12 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
+                      className="w-full pl-12 py-3  border border-gray-600 rounded-lg text-primary placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-green-500 transition"
                     />
                   </div>
                   {referralCode && (
                     <div className={`mt-2 flex items-center gap-2 ${referralCode.length <= 8 ? "text-green-400" : "text-red-400"}`}>
                       {referralCode.length <= 8 ? (
-                        <FiCheck className="w-3 h-3" />
+                        <></>
                       ) : (
                         <div className="flex items-center gap-2">
                           <FiX className="w-3 h-3" />
-                          <span className="text-sm">Must be ≤ 8 characters</span>
+                          <span className="text-sm">Must be less than or eqaul to 8 characters</span>
                         </div>
                       )}
                     </div>
@@ -346,17 +346,17 @@ const SignupPage: React.FC = () => {
               <div className="space-y-6">
                 {/* Last Name */}
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-300">Last Name</label>
+                  <label className="block text-sm font-medium mb-2 text-secondary">Last Name</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <FiUser className="h-5 w-5 text-gray-400" />
+                      <FiUser className="h-5 w-5 text-primary" />
                     </div>
                     <input
                       type="text"
                       value={lastName}
                       onChange={(e) => setLastName(e.target.value)}
                       placeholder="Enter your last name"
-                      className={`w-full pl-12 pr-12 py-3 bg-gray-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition ${lastNameValid === null ? 'border-gray-600 focus:ring-blue-500' : lastNameValid ? 'border-green-500 focus:ring-green-500' : 'border-red-500 focus:ring-red-500'
+                      className={`w-full pl-12 pr-12 py-3  border rounded-lg text-primary placeholder-gray-400 focus:outline-none focus:ring-2 transition ${lastNameValid === null ? 'border-gray-600 focus:ring-blue-500' : lastNameValid ? 'border-green-500 focus:ring-green-500' : 'border-red-500 focus:ring-red-500'
                         }`}
                     />
                     <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
@@ -368,17 +368,17 @@ const SignupPage: React.FC = () => {
 
                 {/* Email */}
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-300">Email</label>
+                  <label className="block text-sm font-medium mb-2 text-secondary">Email</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <FiMail className="h-5 w-5 text-gray-400" />
+                      <FiMail className="h-5 w-5 text-primary" />
                     </div>
                     <input
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Enter your email"
-                      className={`w-full pl-12 pr-12 py-3 bg-gray-700/50 border rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 transition ${emailValid === null ? 'border-gray-600 focus:ring-blue-500' : emailValid ? 'border-green-500 focus:ring-green-500' : 'border-red-500 focus:ring-red-500'
+                      className={`w-full pl-12 pr-12 py-3  border rounded-lg text-primary placeholder-gray-400 focus:outline-none focus:ring-2 transition ${emailValid === null ? 'border-gray-600 focus:ring-blue-500' : emailValid ? 'border-green-500 focus:ring-green-500' : 'border-red-500 focus:ring-red-500'
                         }`}
                     />
                     <div className="absolute inset-y-0 right-0 pr-4 flex items-center">
@@ -390,28 +390,28 @@ const SignupPage: React.FC = () => {
 
                 {/* Password */}
                 <div>
-                  <label className="block text-sm font-medium mb-2 text-gray-300">Password</label>
+                  <label className="block text-sm font-medium mb-2 text-secondary">Password</label>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                      <FiLock className="h-5 w-5 text-gray-400" />
+                      <FiLock className="h-5 w-5 text-primary" />
                     </div>
                     <input
                       type={showPassword ? 'text' : 'password'}
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Create a strong password"
-                      className="w-full pl-12 pr-12 py-3 bg-gray-700/50 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+                      className="w-full pl-12 pr-12 py-3  border border-gray-600 rounded-lg text-primary placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-blue-400 transition-colors"
+                      className="absolute inset-y-0 right-0 pr-4 flex items-center text-gray-400 hover:text-primary transition-colors"
                     >
                       {showPassword ? <FiEyeOff size={20} /> : <FiEye size={20} />}
                     </button>
                   </div>
                   {password.length > 0 && (
-                    <div className="mt-3 bg-gray-700/30 rounded-lg p-4 space-y-2 text-xs">
+                    <div className="mt-3  rounded-lg p-4 space-y-2 text-xs">
                       <div className={`flex items-center gap-2 ${passwordValidations.length ? 'text-green-400' : 'text-red-400'}`}>
                         {passwordValidations.length ? <FiCheck className="w-3 h-3" /> : <FiX className="w-3 h-3" />} 8+ characters
                       </div>
@@ -440,10 +440,10 @@ const SignupPage: React.FC = () => {
                   className="h-4 w-4 cursor-pointer"
                   id="subscription-checkbox"
                 />
-                <label htmlFor="subscription-checkbox" className="flex items-center text-sm text-gray-300 cursor-pointer">
+                <label htmlFor="subscription-checkbox" className="flex items-center text-sm text-primary cursor-pointer">
                   I agree to the{' '}
                   <Link href={"/terms-and-conditions"}>
-                    <span className="ml-1 underline text-blue-400 hover:text-blue-500">
+                    <span className="ml-1 underline text-secondary hover:text-blue-500">
                       Terms And Conditions
                     </span>
                   </Link>
@@ -458,10 +458,10 @@ const SignupPage: React.FC = () => {
                   className="h-4 w-4 cursor-pointer"
                   id="profit-checkbox"
                 />
-                <label htmlFor="profit-checkbox" className="flex items-center text-sm text-gray-300 cursor-pointer">
+                <label htmlFor="profit-checkbox" className="flex items-center text-sm text-primary cursor-pointer">
                   I agree to the{' '}
                   <Link href={"/privacy-policy"}>
-                    <span className="ml-1 underline text-blue-400 hover:text-blue-500">
+                    <span className="ml-1 underline text-secondary hover:text-blue-500">
                       Privacy Policy
                     </span>
                   </Link>
@@ -476,10 +476,10 @@ const SignupPage: React.FC = () => {
                   className="h-4 w-4 cursor-pointer"
                   id="risk-checkbox"
                 />
-                <label htmlFor="risk-checkbox" className="flex items-center text-sm text-gray-300 cursor-pointer">
+                <label htmlFor="risk-checkbox" className="flex items-center text-sm text-primary cursor-pointer">
                   I agree to the{' '}
                   <Link href={"/risk-disclosure"}>
-                    <span className="ml-1 underline text-blue-400 hover:text-blue-500">
+                    <span className="ml-1 underline text-secondary hover:text-blue-500">
                       Risk Disclosure
                     </span>
                   </Link>
@@ -494,7 +494,7 @@ const SignupPage: React.FC = () => {
               onClick={registerUser}
               className={`w-full font-semibold py-4 rounded-xl flex items-center justify-center gap-2 transition-all duration-300 ${loading || !isFormValid
                 ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
-                : 'bg-gradient-to-r from-blue-600 to-green-800 text-white shadow-lg hover:scale-105'
+                : 'bg-gradient-to-r from-secondary to-primary text-white shadow-lg hover:scale-105'
                 }`}
             >
               {loading ? 'Loading...' : 'Register'}
@@ -502,9 +502,9 @@ const SignupPage: React.FC = () => {
             </button>
 
             <div className="text-center pt-4 border-t border-gray-700/50">
-              <p className="text-gray-400">
+              <p className="text-primary">
                 Already have an account?{' '}
-                <Link href="/login" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
+                <Link href="/login" className="text-secondary hover:text-blue-400 font-medium transition-colors">
                   Sign In
                 </Link>
               </p>

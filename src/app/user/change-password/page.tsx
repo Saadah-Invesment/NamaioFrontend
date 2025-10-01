@@ -5,8 +5,9 @@ import { useRouter } from 'next/navigation';
 import { toast } from 'react-hot-toast';
 import { FiLock, FiArrowRight, FiCheck, FiX, FiEye, FiEyeOff } from 'react-icons/fi';
 import { motion } from 'framer-motion';
-import TezcaiLogo from '@/components/Logo/TezcaiLogo';
+
 import { changePassword } from '@/api/profile';
+import NamaioLogo from '@/components/Logo/NamaioLogo';
 
 const ChangePasswordPage: React.FC = () => {
     const router = useRouter();
@@ -100,7 +101,7 @@ const ChangePasswordPage: React.FC = () => {
                 >
                     <div className="text-center mb-8">
                         <div className="mb-6 flex justify-center">
-                            <TezcaiLogo />
+                            <NamaioLogo />
                         </div>
                         <h2 className="text-3xl font-bold mb-2">Change Password</h2>
                         <p className="text-gray-300">Enter your old password and set a new password</p>
