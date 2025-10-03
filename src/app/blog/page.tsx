@@ -34,7 +34,7 @@ export default function AllBlogs() {
 
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-6">All Blogs</h2>
+      <h2 className="text-3xl text-primary font-bold mb-6">All Blogs</h2>
 
       {loading ? (
         // Shimmer effect while loading

@@ -55,9 +55,9 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
         <div>
             <Header />
 
-            <h1 className="text-gray-900 text-xs" > Namaio | Automated Crypto Trading</h1>
+             <h1 className="text-white text-xs" > Namaio | Smart Forex Automation</h1>
             <div className="max-w-7xl mx-auto px-4 py-8">
-                <h2 className='text-3xl font-bold mb-5'>Namaio Blog</h2>
+                <h2 className='text-3xl text-primary font-bold mb-5'>Namaio Blog</h2>
                 {/* Featured Blog Section (only show on blog list & category pages) */}
                 {!isIndividualBlog && latestBlog && (
                     <Link

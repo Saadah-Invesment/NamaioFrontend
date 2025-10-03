@@ -9,7 +9,7 @@ export default function Footer() {
     const companyLinks = [
         { href: "/company/#about", label: "About Us" },
         { href: "/company/#vision", label: "Vision , Mission & Values" },
-        { href: "/blog", label: "Blog" },
+        { href: "/company/#blog", label: "Blog" },
         { href: "/company/#news", label: "News" },
         // { href: "/benchmark", label: "Benchmark" },
         // { href: "/testimonial", label: "Testimonials" },

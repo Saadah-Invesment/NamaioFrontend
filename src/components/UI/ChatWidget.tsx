@@ -110,7 +110,7 @@ export default function ChatWidget() {
             {!open && (
                 <button
                     onClick={() => setOpen(true)}
-                    className="fixed bottom-6 right-6 flex items-center justify-center w-14 h-14 rounded-full bg-blue-600 text-white shadow-lg hover:bg-blue-700 transition"
+                    className="fixed bottom-6 right-6 flex items-center justify-center w-14 h-14 rounded-full bg-secondary text-white shadow-lg hover:bg-primary transition"
                 >
                     <FiMessageCircle size={24} />
                 </button>
@@ -118,9 +118,9 @@ export default function ChatWidget() {
 
             {/* Chat Form */}
             {open && (
-                <div className="fixed bottom-6 right-6 w-80 bg-gray-800 rounded-xl shadow-2xl border border-gray-700 overflow-hidden z-50">
+                <div className="fixed bottom-6 right-6 w-80 bg-primary rounded-xl shadow-2xl  overflow-hidden z-50">
                     {/* Header */}
-                    <div className="flex justify-between items-center px-4 py-2 bg-blue-600 text-white">
+                    <div className="flex justify-between items-center px-4 py-2 bg-secondary text-white">
                         <span className="font-medium">Chat with us</span>
                         <button
                             onClick={() => {
@@ -158,7 +158,7 @@ export default function ChatWidget() {
                                         name="email"
                                         value={formData.email}
                                         onChange={handleChange}
-                                        className={`bg-gray-700 border ${errors.email ? "border-red-500" : "border-gray-600"
+                                        className={`bg-background border ${errors.email ? "border-red-500" : "border-gray-600"
                                             } text-white rounded-lg w-full pl-10 py-2 text-sm focus:ring-blue-500 focus:border-blue-500`}
                                         placeholder="your@email.com"
                                     />
@@ -177,7 +177,7 @@ export default function ChatWidget() {
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleChange}
-                                        className={`bg-gray-700 border ${errors.phone ? "border-red-500" : "border-gray-600"
+                                        className={`bg-background border ${errors.phone ? "border-red-500" : "border-gray-600"
                                             } text-white rounded-lg w-full pl-10 py-2 text-sm focus:ring-blue-500 focus:border-blue-500`}
                                         placeholder="Optional phone"
                                     />
@@ -192,7 +192,7 @@ export default function ChatWidget() {
                                     rows={3}
                                     value={formData.message}
                                     onChange={handleChange}
-                                    className={`bg-gray-700 border ${errors.message ? "border-red-500" : "border-gray-600"
+                                    className={`bg-background border ${errors.message ? "border-red-500" : "border-gray-600"
                                         } text-white rounded-lg w-full px-3 py-2 text-sm focus:ring-blue-500 focus:border-blue-500`}
                                     placeholder="Your message"
                                 />
@@ -200,7 +200,7 @@ export default function ChatWidget() {
                                     <p className="text-xs text-red-400">{errors.message}</p>
                                 )}
 
-                                <div className="mt-8 pt-6 border-t border-gray-700">
+                                <div className="mt-8 pt-6 border-t border-babg-background">
                                     {/* <h2 className="text-xl font-semibold text-white mb-3">Other Ways to Reach Us</h2> */}
                                     <div className="space-y-4">
                                         <div className="flex items-center gap-3">
@@ -218,7 +218,7 @@ export default function ChatWidget() {
                                 <button
                                     onClick={handleSubmit}
                                     disabled={isSubmitting}
-                                    className="w-full flex items-center justify-center gap-2 bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition disabled:opacity-50"
+                                    className="w-full flex items-center justify-center gap-2 bg-secondary text-white py-2 rounded-lg hover:bg-cyan-500 transition disabled:opacity-50"
                                 >
                                     {isSubmitting ? "Sending..." : <><FiSend /> Send</>}
                                 </button>

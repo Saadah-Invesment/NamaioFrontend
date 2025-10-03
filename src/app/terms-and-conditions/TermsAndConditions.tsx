@@ -86,9 +86,9 @@ export default function TermsAndConditions() {
             <li>Net Realized Profit = $1,000 → Profit Share = $150.</li>
             <li>Net Realized Profit = $0 or negative → Profit Share = $0.</li>
           </ul>
-          <p className="mb-6">
+          {/* <p className="mb-6">
             Affiliates: Commissions are paid from our 15%; your fees don't increase when using a referral link.
-          </p>
+          </p> */}
 
           <h2 className="text-xl font-semibold mb-4">4) Subscriptions, Renewals, Refunds, Cancellation</h2>
           <ul className="list-disc pl-6 mb-6 space-y-2">
