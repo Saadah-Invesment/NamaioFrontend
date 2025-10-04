@@ -55,7 +55,7 @@ const PrivateRoute = ({ children, allowedRoles }: PrivateRouteProps) => {
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center h-screen text-white bg-gray-900">
+      <div className="flex items-center justify-center h-screen text-primary">
         Loading...
       </div>
     );

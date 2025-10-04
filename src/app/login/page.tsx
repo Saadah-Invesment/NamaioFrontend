@@ -69,31 +69,31 @@ const LoginPage: React.FC = () => {
       const { access, refresh, role, subscription } = response.data;
 
       // Store in localStorage (optional for client use)
-      localStorage.setItem("tezcai_token", access);
-      localStorage.setItem("tezcai_r_token", refresh);
-      localStorage.setItem("tezcai_role", role);
-      localStorage.setItem("tezcai_sub", subscription);
+      localStorage.setItem("tezcai_token", access|| "");
+      localStorage.setItem("tezcai_r_token", refresh|| "");
+      localStorage.setItem("tezcai_role", role|| "");
+      localStorage.setItem("tezcai_sub", subscription|| "");
 
 
 
       toast.success("Welcome back!");
+      router.replace("/users/dashboard");
+      // // Redirect based on role
+      // if (role === "admin") {
+      //   router.replace("/admin/dashboard");
+      // } else if (role === "affiliate") {
+      //   router.replace("/affiliate/dashboard");
+      // } else if (role === "user") {
+      //   if (!subscription) {
+      //     router.replace("/user/billing");
+      //   } else
+      //     if (subscription === "signal") {
+      //       router.replace("/user/signals");
+      //     } else {
+      //       router.replace("/user/dashboard");
+      //     }
 
-      // Redirect based on role
-      if (role === "admin") {
-        router.replace("/admin/dashboard");
-      } else if (role === "affiliate") {
-        router.replace("/affiliate/dashboard");
-      } else if (role === "user") {
-        if (!subscription) {
-          router.replace("/user/billing");
-        } else
-          if (subscription === "signal") {
-            router.replace("/user/signals");
-          } else {
-            router.replace("/user/dashboard");
-          }
-
-      }
+      // }
 
     } catch (err: any) {
       console.error(err);

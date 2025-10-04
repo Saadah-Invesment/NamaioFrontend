@@ -22,11 +22,7 @@ export default function HowItWorks() {
       description: "Our smart engine begins analyzing and executing trades automatically.",
       icon: MdOutlineAutoAwesome,
     },
-    {
-      title: "Share the Success",
-      description: "Subscription covers your access. Profit-sharing ensures Namaio only earns when you do.",
-      icon: FaShareNodes,
-    }
+   
   ];
 
   return (
@@ -42,7 +38,7 @@ export default function HowItWorks() {
             </div>
           </div>
           <h2 className="text-2xl md:text-3xl font-bold mb-4 text-primary">
-            Get Started in 4 Simple Steps
+            Get Started in 3 Simple Steps
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Go live in under 5 minutes , instant activation so you can make your first trade today.
@@ -50,11 +46,11 @@ export default function HowItWorks() {
         </div>
 
         {/* Steps */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
           {steps.map((step, index) => (
             <div
               key={index}
-              className="group relative bg-background p-6 rounded-2xl border border-white hover:border-secondary  hover:shadow-xl transition-all duration-300"
+              className="group relative bg-background p-6 rounded-2xl border border-secondary hover:border-secondary  hover:shadow-xl transition-all duration-300"
             >
               {/* Icon */}
               <div className="flex items-center justify-center mx-auto w-12 h-12 rounded-xl bg-gradient-to-tr from-cyan-300/20 to-blue-500/20 text-secondary group-hover:scale-110 transition-transform duration-300">
@@ -62,12 +58,12 @@ export default function HowItWorks() {
               </div>
 
               {/* Title */}
-              <h3 className="mt-6 text-2xl font-bold text-gray-900">
+              <h3 className="mt-6 text-2xl font-bold text-gray-900 text-center">
                 {step.title}
               </h3>
 
               {/* Description */}
-              <p className="mt-3 text-lg text-gray-600 leading-relaxed">
+              <p className="mt-3 text-lg text-gray-600 text-center leading-relaxed">
                 {step.description}
               </p>
             </div>
