@@ -170,6 +170,7 @@ export default function HeaderSection(): JSX.Element {
               <NavLink href="/pricing">Pricing</NavLink>
               {/* <NavLink href="/affiliate">Affiliate</NavLink> */}
               <NavLink href="/company">Company</NavLink>
+              <NavLink href="/faq">FAQ</NavLink>
               {/* <NavLink href="/benchmark">Benchmark</NavLink> */}
               {/* <FaqDropdown /> */}
             </nav>

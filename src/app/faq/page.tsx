@@ -21,12 +21,13 @@ function FaqSection() {
   return (
     <div>
       <Header />
-      <h1 className="text-white text-xs" > Namaio | Smart Forex Automation</h1>
+
       <GeneralFaq />
-      <AffiliateFaq />
+      {/* <AffiliateFaq />
       <FAQ />
-      <SignalFAQ />
+      <SignalFAQ /> */}
       <Footer />
+      <h1 className="text-white text-xs" > Namaio | Smart Forex Automation</h1>
     </div>
   )
 }

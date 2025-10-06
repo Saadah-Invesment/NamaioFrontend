@@ -24,6 +24,7 @@ export default function Footer() {
     const supportLinks = [
         // { href: "/help-center", label: "Help Center" },
         { href: "/how-it-works", label: "How It Works" },
+         { href: "/faq", label: "FAQ" },
         // { href: "/tutorial", label: "Tutorial" },
     ];
 
