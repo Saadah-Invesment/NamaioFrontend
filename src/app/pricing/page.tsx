@@ -6,7 +6,7 @@ import Pricing from "@/components/Pricing";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Namaio Pricing Plans | Affordable Automated Crypto Trading",
+    title: "Namaio Pricing Plans | Automated Forex Trading.",
     description:
         "Explore Namaio’s pricing plans for automated crypto trading. Choose the plan that fits your trading style and start smarter trading today.",
     alternates: {

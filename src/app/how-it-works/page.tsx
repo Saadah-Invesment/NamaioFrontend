@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import HowItWorks from "@/components/HowitWorks";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
-  title: "How Namaio Works | Automated Crypto Trading Explained",
+  title: "How Namaio Works |  Automated Forex Trading.",
   description:
     "Learn how Namaio’s automated crypto trading platform works with smart strategies that trade on your exchange to maximize results.",
   alternates: {
