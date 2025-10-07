@@ -29,7 +29,7 @@ const Dashboard: React.FC = () => {
     const [botActive, setBotActive] = useState(true);
 
     // Fund balance in USD
-    const fundBalance = 12500.75;
+    const fundBalance = 2500.75;
 
     // Mock profits in percentages
     const dailyProfit = 1.2; // %
@@ -200,7 +200,7 @@ const Dashboard: React.FC = () => {
                         </div>
                         <ArrowUp className="text-green-600" size={20} />
                     </div>
-                    <h2 className="text-gray-500 text-sm font-medium mb-1">Daily Profit</h2>
+                    <h2 className="text-gray-500 text-sm font-medium mb-1">Today Profit</h2>
                     <p className="text-3xl font-bold text-[#32bfb7]">{dailyProfit}%</p>
                 </div>
 
@@ -266,9 +266,11 @@ const Dashboard: React.FC = () => {
             <div className="bg-white shadow-md rounded-2xl p-6">
                 <div className="flex items-center justify-between mb-6">
                     <h3 className="text-lg font-semibold text-[#0e2a4c]">Recent Trades</h3>
-                    <button className="text-sm text-[#32bfb7] hover:text-[#28a59d] font-medium transition-colors">
+                     <h3 className="text-xl font-semibold text-secondary">Total Trades : 4 </h3>
+                       <h3 className="text-xl font-semibold text-secondary"></h3>
+                    {/* <button className="text-sm text-[#32bfb7] hover:text-[#28a59d] font-medium transition-colors">
                         View All →
-                    </button>
+                    </button> */}
                 </div>
                 <div className="overflow-x-auto">
                     <table className="w-full text-left">

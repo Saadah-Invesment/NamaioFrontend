@@ -1,7 +1,10 @@
 'use client';
 
 import { useEffect, useState } from "react";
-import { FiEdit2, FiLock, FiUser, FiMail, FiPhone, FiMapPin, FiBriefcase, FiCalendar, FiCreditCard, FiLogOut, FiCheck, FiX } from "react-icons/fi";
+import { 
+  FiEdit2, FiLock, FiUser, FiMail, FiPhone, FiMapPin, FiBriefcase, 
+  FiCalendar, FiCreditCard, FiLogOut, FiCheck, FiX 
+} from "react-icons/fi";
 import { MdSubscriptions } from "react-icons/md";
 
 interface User {
@@ -46,14 +49,14 @@ export default function ProfilePage() {
   const toggleEdit = () => setEditMode(!editMode);
 
   const handleChange = (field: keyof User, value: string) => {
-    if (!userData) return;
-    setUserData({ ...userData, [field]: value });
+    setUserData((prev) => prev ? { ...prev, [field]: value } : prev);
   };
 
   const saveProfile = () => {
     if (!auth || !userData) return;
-    localStorage.setItem("mock_auth", JSON.stringify({ ...auth, user: userData }));
-    setAuth({ ...auth, user: userData });
+    const updatedAuth = { ...auth, user: userData };
+    localStorage.setItem("mock_auth", JSON.stringify(updatedAuth));
+    setAuth(updatedAuth);
     setEditMode(false);
     alert("Profile updated successfully!");
   };
@@ -71,7 +74,19 @@ export default function ProfilePage() {
     );
   }
 
-  const InfoField = ({ icon: Icon, label, value, field, editable = false }: any) => (
+  const InfoField = ({
+    icon: Icon,
+    label,
+    value,
+    field,
+    editable = false,
+  }: {
+    icon: any;
+    label: string;
+    value: string | undefined;
+    field: keyof User;
+    editable?: boolean;
+  }) => (
     <div className="group">
       <label className="text-sm font-medium text-gray-500 flex items-center gap-2 mb-2">
         <Icon size={16} className="text-[#32bfb7]" />
@@ -80,7 +95,7 @@ export default function ProfilePage() {
       {editMode && editable ? (
         <input
           type="text"
-          value={value || ""}
+          value={value ?? ""}
           onChange={(e) => handleChange(field, e.target.value)}
           className="w-full bg-gray-50 border border-gray-200 rounded-lg px-4 py-2.5 text-gray-800 focus:outline-none focus:border-[#32bfb7] focus:bg-white transition-all"
           placeholder={`Enter ${label.toLowerCase()}`}
@@ -96,14 +111,14 @@ export default function ProfilePage() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-8 px-4">
       <div className="max-w-6xl mx-auto">
-        
         {/* Header Card */}
         <div className="bg-[#0e2a4c] rounded-2xl p-8 mb-6 shadow-lg relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-[#32bfb7] opacity-10 rounded-full -mr-32 -mt-32"></div>
           <div className="relative z-10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="flex items-center gap-6">
               <div className="w-20 h-20 bg-gradient-to-br from-[#32bfb7] to-[#28a59d] rounded-xl flex items-center justify-center text-white text-2xl font-bold shadow-lg">
-                {userData.first_name.charAt(0)}{userData.last_name.charAt(0)}
+                {userData.first_name.charAt(0)}
+                {userData.last_name.charAt(0)}
               </div>
               <div>
                 <h1 className="text-3xl font-bold text-white mb-1">
@@ -112,7 +127,7 @@ export default function ProfilePage() {
                 <p className="text-[#32bfb7] font-medium">@{userData.username}</p>
               </div>
             </div>
-            <div className="flex gap-3">
+            {/* <div className="flex gap-3">
               {editMode ? (
                 <>
                   <button
@@ -136,85 +151,39 @@ export default function ProfilePage() {
                   <FiEdit2 size={18} /> Edit Profile
                 </button>
               )}
-            </div>
+            </div> */}
           </div>
         </div>
 
         {/* Main Content */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-          
-          {/* Left Column - Personal Info */}
+          {/* Left Column */}
           <div className="lg:col-span-2 bg-white rounded-2xl shadow-md p-6">
             <h2 className="text-xl font-semibold text-[#0e2a4c] mb-6 pb-3 border-b border-gray-200">
               Personal Information
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <InfoField 
-                icon={FiUser} 
-                label="First Name" 
-                value={userData.first_name}
-                field="first_name"
-                editable={true}
-              />
-              <InfoField 
-                icon={FiUser} 
-                label="Last Name" 
-                value={userData.last_name}
-                field="last_name"
-                editable={true}
-              />
-              <InfoField 
-                icon={FiMail} 
-                label="Email Address" 
-                value={userData.email}
-                field="email"
-              />
-              <InfoField 
-                icon={FiPhone} 
-                label="Phone Number" 
-                value={userData.phone}
-                field="phone"
-                editable={true}
-              />
+              <InfoField icon={FiUser} label="First Name" value={userData.first_name} field="first_name" editable />
+              <InfoField icon={FiUser} label="Last Name" value={userData.last_name} field="last_name" editable />
+              <InfoField icon={FiMail} label="Email Address" value={userData.email} field="email" />
+              <InfoField icon={FiPhone} label="Phone Number" value={userData.phone} field="phone" editable />
               <div className="md:col-span-2">
-                <InfoField 
-                  icon={FiMapPin} 
-                  label="Address" 
-                  value={userData.address}
-                  field="address"
-                  editable={true}
-                />
+                <InfoField icon={FiMapPin} label="Address" value={userData.address} field="address" editable />
               </div>
             </div>
           </div>
 
-          {/* Right Column - Account Info */}
+          {/* Right Column */}
           <div className="space-y-6">
             <div className="bg-white rounded-2xl shadow-md p-6">
               <h2 className="text-xl font-semibold text-[#0e2a4c] mb-6 pb-3 border-b border-gray-200">
                 Account Details
               </h2>
               <div className="space-y-6">
-                <InfoField 
-                  icon={FiBriefcase} 
-                  label="Role" 
-                  value={userData.role}
-                />
-                <InfoField 
-                  icon={MdSubscriptions} 
-                  label="Subscription Plan" 
-                  value={userData.subscription}
-                />
-                <InfoField 
-                  icon={FiCalendar} 
-                  label="Member Since" 
-                  value={userData.joined || "2025-01-01"}
-                />
-                <InfoField 
-                  icon={FiCreditCard} 
-                  label="Plan Expires" 
-                  value={userData.planExpiry || "2025-12-31"}
-                />
+                <InfoField icon={FiBriefcase} label="Role" value={userData.role} field="role" />
+                <InfoField icon={MdSubscriptions} label="Subscription Plan" value={userData.subscription} field="subscription" />
+                <InfoField icon={FiCalendar} label="Member Since" value={userData.joined || "2025-01-01"} field="joined" />
+                <InfoField icon={FiCreditCard} label="Plan Expires" value={userData.planExpiry || "2025-12-31"} field="planExpiry" />
               </div>
             </div>
 
@@ -226,51 +195,6 @@ export default function ProfilePage() {
             </button>
           </div>
         </div>
-
-        {/* Security Section */}
-        <div className="bg-white rounded-2xl shadow-md p-6 mt-6">
-          <h2 className="text-xl font-semibold text-[#0e2a4c] mb-6 pb-3 border-b border-gray-200">
-            Security & Tokens
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-xl p-4 hover:shadow-md transition-all cursor-pointer overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0e2a4c]/0 to-[#32bfb7]/0 group-hover:from-[#0e2a4c]/5 group-hover:to-[#32bfb7]/5 transition-all"></div>
-              <div className="relative flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
-                    <FiLock className="text-[#0e2a4c]" size={20} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800">Access Token</p>
-                    <p className="text-xs text-gray-500 mt-0.5">Click to view</p>
-                  </div>
-                </div>
-                <div className="text-[#32bfb7] opacity-0 group-hover:opacity-100 transition-opacity">
-                  →
-                </div>
-              </div>
-            </div>
-            
-            <div className="group relative bg-gradient-to-br from-gray-50 to-gray-100 border border-gray-200 rounded-xl p-4 hover:shadow-md transition-all cursor-pointer overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-r from-[#0e2a4c]/0 to-[#32bfb7]/0 group-hover:from-[#0e2a4c]/5 group-hover:to-[#32bfb7]/5 transition-all"></div>
-              <div className="relative flex items-center justify-between">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center shadow-sm">
-                    <FiLock className="text-[#0e2a4c]" size={20} />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800">Refresh Token</p>
-                    <p className="text-xs text-gray-500 mt-0.5">Click to view</p>
-                  </div>
-                </div>
-                <div className="text-[#32bfb7] opacity-0 group-hover:opacity-100 transition-opacity">
-                  →
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </div>
   );

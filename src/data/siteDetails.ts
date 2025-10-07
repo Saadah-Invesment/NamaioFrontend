@@ -8,5 +8,5 @@ export const siteDetails = {
     language: 'en-us',
     locale: 'en-US',
     siteLogo: `${process.env.BASE_PATH || ''}/images/namaio-bull-logo.png`,
-    googleAnalyticsId: 'G-68K9YRBLGZ',
+    googleAnalyticsId: '',
 }

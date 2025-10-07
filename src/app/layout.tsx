@@ -95,7 +95,7 @@ export default function RootLayout({
           {/* <TradingDisclaimerModal /> */}
           <Toaster position="top-right" />
         </AuthProvider>
-        <SchemaInjector />
+        {/* <SchemaInjector /> */}
 
         {/* ✅ JSON-LD: Website with Search */}
         <Script
